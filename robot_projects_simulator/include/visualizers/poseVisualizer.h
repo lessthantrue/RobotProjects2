@@ -8,9 +8,7 @@ class PoseVisualizer : public RVizable<PoseStamped>{
 private:
     PoseStamped message;
 protected:
-    string frameId;
     PoseStamped getPublishData() override;
 public:
-    void setFrame(string s);
     void setMessage(ControlAffineSystem *) override;
 };

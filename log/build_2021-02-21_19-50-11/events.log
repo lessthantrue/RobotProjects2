@@ -1,0 +1,135 @@
+[0.000000] (-) TimerEvent: {}
+[0.001783] (robot_projects_simulator) JobQueued: {'identifier': 'robot_projects_simulator', 'dependencies': OrderedDict()}
+[0.005682] (robot_projects_simulator) JobStarted: {'identifier': 'robot_projects_simulator'}
+[0.058146] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'cmake'}
+[0.058363] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'build'}
+[0.058448] (robot_projects_simulator) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/nick/dev_ws/src/build/robot_projects_simulator', '--', '-j4', '-l4'], 'cwd': '/home/nick/dev_ws/src/build/robot_projects_simulator', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'nick'), ('SSH_AGENT_PID', '1508'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/turtlesim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/nick'), ('OLDPWD', '/home/nick/dev_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1331'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/nick/dev_ws/src/install:/home/nick/dev_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'nick'), ('JOURNAL_STREAM', '8:51662'), ('_', '/home/nick/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nick'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/nick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1543,unix/ubuntu:/tmp/.ICE-unix/1543'), ('INVOCATION_ID', '1f0756de1fa6437aab827f9fd730ea9f'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/636a54af_ddda_49e4_abdc_213368e8354f'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.146'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator:/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nick/dev_ws/src/build/robot_projects_simulator'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nick/dev_ws/install/turtlesim/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator:/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy')]), 'shell': False}
+[0.099035] (-) TimerEvent: {}
+[0.200194] (-) TimerEvent: {}
+[0.261541] (robot_projects_simulator) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_projects_simulator\x1b[0m\n'}
+[0.301012] (-) TimerEvent: {}
+[0.381163] (robot_projects_simulator) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simulation.cpp.o\x1b[0m\n'}
+[0.404516] (-) TimerEvent: {}
+[0.505029] (-) TimerEvent: {}
+[0.605555] (-) TimerEvent: {}
+[0.706553] (-) TimerEvent: {}
+[0.807077] (-) TimerEvent: {}
+[0.908143] (-) TimerEvent: {}
+[1.009140] (-) TimerEvent: {}
+[1.110136] (-) TimerEvent: {}
+[1.211159] (-) TimerEvent: {}
+[1.311748] (-) TimerEvent: {}
+[1.413162] (-) TimerEvent: {}
+[1.514188] (-) TimerEvent: {}
+[1.615018] (-) TimerEvent: {}
+[1.715752] (-) TimerEvent: {}
+[1.817213] (-) TimerEvent: {}
+[1.918165] (-) TimerEvent: {}
+[2.019192] (-) TimerEvent: {}
+[2.120213] (-) TimerEvent: {}
+[2.221237] (-) TimerEvent: {}
+[2.322223] (-) TimerEvent: {}
+[2.423213] (-) TimerEvent: {}
+[2.524245] (-) TimerEvent: {}
+[2.625215] (-) TimerEvent: {}
+[2.726220] (-) TimerEvent: {}
+[2.827249] (-) TimerEvent: {}
+[2.928242] (-) TimerEvent: {}
+[3.029272] (-) TimerEvent: {}
+[3.130243] (-) TimerEvent: {}
+[3.231306] (-) TimerEvent: {}
+[3.332549] (-) TimerEvent: {}
+[3.433300] (-) TimerEvent: {}
+[3.534274] (-) TimerEvent: {}
+[3.635307] (-) TimerEvent: {}
+[3.736318] (-) TimerEvent: {}
+[3.837343] (-) TimerEvent: {}
+[3.938314] (-) TimerEvent: {}
+[4.039321] (-) TimerEvent: {}
+[4.140340] (-) TimerEvent: {}
+[4.241357] (-) TimerEvent: {}
+[4.342334] (-) TimerEvent: {}
+[4.443330] (-) TimerEvent: {}
+[4.544380] (-) TimerEvent: {}
+[4.645374] (-) TimerEvent: {}
+[4.746356] (-) TimerEvent: {}
+[4.847383] (-) TimerEvent: {}
+[4.948437] (-) TimerEvent: {}
+[5.049403] (-) TimerEvent: {}
+[5.150425] (-) TimerEvent: {}
+[5.251455] (-) TimerEvent: {}
+[5.352504] (-) TimerEvent: {}
+[5.453450] (-) TimerEvent: {}
+[5.554440] (-) TimerEvent: {}
+[5.655450] (-) TimerEvent: {}
+[5.756446] (-) TimerEvent: {}
+[5.857488] (-) TimerEvent: {}
+[5.958451] (-) TimerEvent: {}
+[6.059465] (-) TimerEvent: {}
+[6.160491] (-) TimerEvent: {}
+[6.261526] (-) TimerEvent: {}
+[6.362459] (-) TimerEvent: {}
+[6.463496] (-) TimerEvent: {}
+[6.564525] (-) TimerEvent: {}
+[6.665493] (-) TimerEvent: {}
+[6.766679] (-) TimerEvent: {}
+[6.867549] (-) TimerEvent: {}
+[6.968677] (-) TimerEvent: {}
+[7.069628] (-) TimerEvent: {}
+[7.170647] (-) TimerEvent: {}
+[7.271604] (-) TimerEvent: {}
+[7.372576] (-) TimerEvent: {}
+[7.473613] (-) TimerEvent: {}
+[7.574629] (-) TimerEvent: {}
+[7.675578] (-) TimerEvent: {}
+[7.776509] (-) TimerEvent: {}
+[7.793084] (robot_projects_simulator) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking CXX shared library librobot_projects_simulator.so\x1b[0m\n'}
+[7.877682] (-) TimerEvent: {}
+[7.979150] (-) TimerEvent: {}
+[8.080664] (-) TimerEvent: {}
+[8.181372] (-) TimerEvent: {}
+[8.281954] (-) TimerEvent: {}
+[8.388375] (-) TimerEvent: {}
+[8.491657] (-) TimerEvent: {}
+[8.595675] (-) TimerEvent: {}
+[8.696465] (-) TimerEvent: {}
+[8.796683] (robot_projects_simulator) StdoutLine: {'line': b'[ 80%] Built target robot_projects_simulator\n'}
+[8.797088] (-) TimerEvent: {}
+[8.858958] (robot_projects_simulator) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable simple_sim\x1b[0m\n'}
+[8.897727] (-) TimerEvent: {}
+[8.998717] (-) TimerEvent: {}
+[9.100077] (-) TimerEvent: {}
+[9.200731] (-) TimerEvent: {}
+[9.301715] (-) TimerEvent: {}
+[9.378643] (robot_projects_simulator) StdoutLine: {'line': b'[100%] Built target simple_sim\n'}
+[9.402102] (-) TimerEvent: {}
+[9.404383] (robot_projects_simulator) CommandEnded: {'returncode': 0}
+[9.488462] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'install'}
+[9.502748] (-) TimerEvent: {}
+[9.511464] (robot_projects_simulator) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/nick/dev_ws/src/build/robot_projects_simulator'], 'cwd': '/home/nick/dev_ws/src/build/robot_projects_simulator', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'nick'), ('SSH_AGENT_PID', '1508'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/turtlesim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/nick'), ('OLDPWD', '/home/nick/dev_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1331'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/nick/dev_ws/src/install:/home/nick/dev_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'nick'), ('JOURNAL_STREAM', '8:51662'), ('_', '/home/nick/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nick'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/nick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1543,unix/ubuntu:/tmp/.ICE-unix/1543'), ('INVOCATION_ID', '1f0756de1fa6437aab827f9fd730ea9f'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/636a54af_ddda_49e4_abdc_213368e8354f'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.146'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator:/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nick/dev_ws/src/build/robot_projects_simulator'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nick/dev_ws/install/turtlesim/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/nick/dev_ws/src/install/robot_projects_simulator:/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy')]), 'shell': False}
+[9.525957] (robot_projects_simulator) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.531606] (robot_projects_simulator) StdoutLine: {'line': b'-- Installing: /home/nick/dev_ws/src/install/robot_projects_simulator/lib/librobot_projects_simulator.so\n'}
+[9.542393] (robot_projects_simulator) StdoutLine: {'line': b'-- Set runtime path of "/home/nick/dev_ws/src/install/robot_projects_simulator/lib/librobot_projects_simulator.so" to ""\n'}
+[9.542879] (robot_projects_simulator) StdoutLine: {'line': b'-- Installing: /home/nick/dev_ws/src/install/robot_projects_simulator/lib/robot_projects_simulator/simple_sim\n'}
+[9.545878] (robot_projects_simulator) StdoutLine: {'line': b'-- Set runtime path of "/home/nick/dev_ws/src/install/robot_projects_simulator/lib/robot_projects_simulator/simple_sim" to ""\n'}
+[9.546491] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/ament_index/resource_index/package_run_dependencies/robot_projects_simulator\n'}
+[9.546811] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/ament_index/resource_index/parent_prefix_path/robot_projects_simulator\n'}
+[9.547374] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/environment/ament_prefix_path.sh\n'}
+[9.547757] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/environment/ament_prefix_path.dsv\n'}
+[9.548227] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/environment/path.sh\n'}
+[9.548495] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/environment/path.dsv\n'}
+[9.548904] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/local_setup.bash\n'}
+[9.549154] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/local_setup.sh\n'}
+[9.549335] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/local_setup.zsh\n'}
+[9.549494] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/local_setup.dsv\n'}
+[9.549678] (robot_projects_simulator) StdoutLine: {'line': b'-- Installing: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/package.dsv\n'}
+[9.549841] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/ament_index/resource_index/packages/robot_projects_simulator\n'}
+[9.549999] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.550157] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/cmake/robot_projects_simulatorConfig.cmake\n'}
+[9.550351] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/cmake/robot_projects_simulatorConfig-version.cmake\n'}
+[9.550538] (robot_projects_simulator) StdoutLine: {'line': b'-- Up-to-date: /home/nick/dev_ws/src/install/robot_projects_simulator/share/robot_projects_simulator/package.xml\n'}
+[9.552085] (robot_projects_simulator) CommandEnded: {'returncode': 0}
+[9.605777] (-) TimerEvent: {}
+[9.706802] (-) TimerEvent: {}
+[9.786338] (robot_projects_simulator) JobEnded: {'identifier': 'robot_projects_simulator', 'rc': 0}
+[9.788313] (-) EventReactorShutdown: {}

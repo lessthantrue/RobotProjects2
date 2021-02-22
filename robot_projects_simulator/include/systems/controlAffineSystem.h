@@ -3,6 +3,7 @@
 #include <eigen3/Eigen/Eigen>
 #include <map>
 #include <string>
+#include <geometry_msgs/msg/transform.hpp>
 
 // represents a dynamic system of the form:
 // dx/dt = f(x) + g(x)u
@@ -27,4 +28,5 @@ public:
     Eigen::VectorXd dxdt(Eigen::VectorXd u);
     void step(Eigen::VectorXd u, double dt);
     double getValueByName(string name);
+    virtual geometry_msgs::msg::Transform getTransform() = 0;
 };

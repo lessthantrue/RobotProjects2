@@ -10,10 +10,13 @@ using namespace rclcpp;
 
 // rename to something like 'IStatePublisher' in the future
 class IPublisher{
+protected:
+    string frameId;
 public:
     virtual void publish() = 0;
     virtual void attach(std::shared_ptr<Node>, string) = 0;
     virtual void setMessage(ControlAffineSystem *) = 0;
+    void setFrameId(string s) { frameId = s; }
 };
 
 #endif

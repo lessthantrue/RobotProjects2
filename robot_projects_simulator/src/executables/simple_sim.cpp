@@ -26,12 +26,16 @@ int main(int argc, char ** argv)
   points.emplace_back(3, 2, "map");
   sim->addPoints(points);
 
-  PoseVisualizer viz;
-  viz.setFrame("odom");
-  SimpleSE2 dyn(0, 0, 0);
-  sim->addObject("diff_drive", &dyn, &viz);
+  SimObjectConfiguration conf;
+  conf.name = "diff_drive";
+  conf.frameId = "base_link";
+  conf.parentFrame = "map";
+  conf.loopHz = 20;
 
-  RCLCPP_INFO(sim->get_logger(), "Simulation Initialized");
+  PoseVisualizer viz;
+  SimpleSE2 dyn(0, 0, 0);
+  sim->addObject(conf, &dyn, &viz);
+
 
   for(;;){
     sim->timeStep();

@@ -12,7 +12,15 @@ SimObject::SimObject(std::string _name, IPublisher * viz, ControlAffineSystem * 
         lastCtrl = Eigen::VectorXd::Zero(dynamics->dimU());
 }
 
-// confirmed: this works
+SimObject::SimObject(SimObjectConfiguration conf, IPublisher * viz, ControlAffineSystem * dyn)
+    : period(Duration((1.0 / conf.loopHz) * 1000 * 1000 * 1000)), // seconds to nanoseconds 
+      name(conf.name), visualizer(viz), dynamics(dyn) {
+    lastCtrl = Eigen::VectorXd::Zero(dynamics->dimU());
+    visualizer->setFrameId(conf.frameId);
+    tfBase.child_frame_id = conf.frameId;
+    tfBase.header.frame_id = conf.parentFrame;
+}   
+
 void SimObject::controlCallback(const Float64MultiArray::SharedPtr msg){
     lastCtrl = Eigen::Map<Eigen::VectorXd>(&msg->data[0], dynamics->dimU());
 }
@@ -26,11 +34,17 @@ void SimObject::visualize(){
     visualizer->publish();
 }
 
+void SimObject::publishTransform(){
+    tfBase.transform = dynamics->getTransform();
+    tfPublisher->sendTransform(tfBase);
+}
+
 void SimObject::timerCallback(){
     for(int i = 0; i < timeSteps; i++){
         stepTime(0.001); // 1 millisecond
     }
     visualize();
+    publishTransform();
 }
 
 void SimObject::attach(std::shared_ptr<Node> n){
@@ -43,7 +57,12 @@ void SimObject::attach(std::shared_ptr<Node> n){
 
     // timeSteps = milliseconds per update
     timeSteps = (int)(period.seconds() * 1000);
-    RCLCPP_INFO(n->get_logger(), "%s | time steps: %d (actual seconds: %f)", name, timeSteps, period.seconds());
+    RCLCPP_INFO(n->get_logger(), "%s | time steps : %d ms (actual seconds: %f)", name.c_str(), timeSteps, period.seconds());
 
     visualizer->attach(n, name + "/visualizer");
+}
+
+void SimObject::attachTf(std::shared_ptr<tf2_ros::Buffer> buf, Node::SharedPtr node){
+    tfListener = std::make_shared<tf2_ros::TransformListener>(*buf);
+    tfPublisher = std::make_shared<tf2_ros::TransformBroadcaster>(node);
 }

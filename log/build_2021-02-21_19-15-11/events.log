@@ -1,0 +1,364 @@
+[0.000000] (-) TimerEvent: {}
+[0.001195] (robot_projects_simulator) JobQueued: {'identifier': 'robot_projects_simulator', 'dependencies': OrderedDict()}
+[0.002709] (robot_projects_simulator) JobStarted: {'identifier': 'robot_projects_simulator'}
+[0.063040] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'cmake'}
+[0.065549] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'build'}
+[0.069312] (robot_projects_simulator) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/nick/dev_ws/src/build/robot_projects_simulator', '--', '-j4', '-l4'], 'cwd': '/home/nick/dev_ws/src/build/robot_projects_simulator', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'nick'), ('SSH_AGENT_PID', '1508'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nick/dev_ws/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/turtlesim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/nick'), ('OLDPWD', '/home/nick/dev_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1331'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/nick/dev_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'nick'), ('JOURNAL_STREAM', '8:51662'), ('_', '/home/nick/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nick'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/nick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1543,unix/ubuntu:/tmp/.ICE-unix/1543'), ('INVOCATION_ID', '1f0756de1fa6437aab827f9fd730ea9f'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/636a54af_ddda_49e4_abdc_213368e8354f'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.146'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nick/dev_ws/src/build/robot_projects_simulator'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nick/dev_ws/install/turtlesim/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy')]), 'shell': False}
+[0.100719] (-) TimerEvent: {}
+[0.202727] (-) TimerEvent: {}
+[0.230927] (robot_projects_simulator) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_projects_simulator\x1b[0m\n'}
+[0.303252] (-) TimerEvent: {}
+[0.398966] (robot_projects_simulator) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simObject.cpp.o\x1b[0m\n'}
+[0.411733] (-) TimerEvent: {}
+[0.412427] (robot_projects_simulator) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/systems/controlAffineSystem.cpp.o\x1b[0m\n'}
+[0.413349] (robot_projects_simulator) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/executables/simple_sim.cpp.o\x1b[0m\n'}
+[0.424178] (robot_projects_simulator) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simulation.cpp.o\x1b[0m\n'}
+[0.512260] (-) TimerEvent: {}
+[0.618866] (-) TimerEvent: {}
+[0.722389] (-) TimerEvent: {}
+[0.823260] (-) TimerEvent: {}
+[0.923825] (-) TimerEvent: {}
+[1.024354] (-) TimerEvent: {}
+[1.125028] (-) TimerEvent: {}
+[1.141632] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/backward/strstream:50\x1b[m\x1b[K,\n'}
+[1.142024] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:3\x1b[m\x1b[K:\n'}
+[1.142197] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/backward/backward_warning.h:32:2:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K#warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [\x1b[01;35m\x1b[K-Wcpp\x1b[m\x1b[K]\n'}
+[1.142449] (robot_projects_simulator) StderrLine: {'line': b'   32 | #\x1b[01;35m\x1b[Kwarning\x1b[m\x1b[K \\\n'}
+[1.142616] (robot_projects_simulator) StderrLine: {'line': b'      |  \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[1.225381] (-) TimerEvent: {}
+[1.325895] (-) TimerEvent: {}
+[1.426437] (-) TimerEvent: {}
+[1.527417] (-) TimerEvent: {}
+[1.627944] (-) TimerEvent: {}
+[1.728968] (-) TimerEvent: {}
+[1.829987] (-) TimerEvent: {}
+[1.930525] (-) TimerEvent: {}
+[2.037505] (-) TimerEvent: {}
+[2.139511] (-) TimerEvent: {}
+[2.241544] (-) TimerEvent: {}
+[2.343037] (-) TimerEvent: {}
+[2.444563] (-) TimerEvent: {}
+[2.546089] (-) TimerEvent: {}
+[2.648091] (-) TimerEvent: {}
+[2.750117] (-) TimerEvent: {}
+[2.852136] (-) TimerEvent: {}
+[2.953634] (-) TimerEvent: {}
+[3.055146] (-) TimerEvent: {}
+[3.156659] (-) TimerEvent: {}
+[3.258680] (-) TimerEvent: {}
+[3.361025] (-) TimerEvent: {}
+[3.464195] (-) TimerEvent: {}
+[3.565716] (-) TimerEvent: {}
+[3.674744] (-) TimerEvent: {}
+[3.778747] (-) TimerEvent: {}
+[3.882776] (-) TimerEvent: {}
+[3.986798] (-) TimerEvent: {}
+[4.090415] (-) TimerEvent: {}
+[4.194308] (-) TimerEvent: {}
+[4.298333] (-) TimerEvent: {}
+[4.402382] (-) TimerEvent: {}
+[4.506367] (-) TimerEvent: {}
+[4.610546] (-) TimerEvent: {}
+[4.719094] (-) TimerEvent: {}
+[4.826250] (-) TimerEvent: {}
+[4.928608] (-) TimerEvent: {}
+[5.034427] (-) TimerEvent: {}
+[5.138458] (-) TimerEvent: {}
+[5.242498] (-) TimerEvent: {}
+[5.343444] (-) TimerEvent: {}
+[5.449472] (-) TimerEvent: {}
+[5.554521] (-) TimerEvent: {}
+[5.658534] (-) TimerEvent: {}
+[5.761351] (-) TimerEvent: {}
+[5.862572] (-) TimerEvent: {}
+[5.964829] (-) TimerEvent: {}
+[6.066590] (-) TimerEvent: {}
+[6.138801] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/systems/controlAffineSystem.cpp:1\x1b[m\x1b[K:\n'}
+[6.139206] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/systems/controlAffineSystem.h:31:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgeometry_msgs\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[6.139449] (robot_projects_simulator) StderrLine: {'line': b'   31 |     virtual \x1b[01;31m\x1b[Kgeometry_msgs\x1b[m\x1b[K::msg::Transform getTransform() = 0;\n'}
+[6.139695] (robot_projects_simulator) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.166870] (-) TimerEvent: {}
+[6.270325] (-) TimerEvent: {}
+[6.373801] (-) TimerEvent: {}
+[6.475632] (-) TimerEvent: {}
+[6.578667] (-) TimerEvent: {}
+[6.681422] (-) TimerEvent: {}
+[6.783680] (-) TimerEvent: {}
+[6.885907] (-) TimerEvent: {}
+[6.946853] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot_projects_simulator.dir/build.make:115: CMakeFiles/robot_projects_simulator.dir/src/systems/controlAffineSystem.cpp.o] Error 1\n'}
+[6.947294] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** Waiting for unfinished jobs....\n'}
+[6.986417] (-) TimerEvent: {}
+[7.089729] (-) TimerEvent: {}
+[7.194836] (-) TimerEvent: {}
+[7.297765] (-) TimerEvent: {}
+[7.399792] (-) TimerEvent: {}
+[7.557861] (-) TimerEvent: {}
+[7.662396] (-) TimerEvent: {}
+[7.762959] (-) TimerEvent: {}
+[7.863849] (-) TimerEvent: {}
+[7.964840] (-) TimerEvent: {}
+[8.065836] (-) TimerEvent: {}
+[8.166847] (-) TimerEvent: {}
+[8.268346] (-) TimerEvent: {}
+[8.369884] (-) TimerEvent: {}
+[8.470884] (-) TimerEvent: {}
+[8.571900] (-) TimerEvent: {}
+[8.672909] (-) TimerEvent: {}
+[8.773926] (-) TimerEvent: {}
+[8.875361] (-) TimerEvent: {}
+[8.976457] (-) TimerEvent: {}
+[9.077467] (-) TimerEvent: {}
+[9.178494] (-) TimerEvent: {}
+[9.279670] (-) TimerEvent: {}
+[9.381189] (-) TimerEvent: {}
+[9.482563] (-) TimerEvent: {}
+[9.584043] (-) TimerEvent: {}
+[9.719555] (-) TimerEvent: {}
+[9.782842] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:6\x1b[m\x1b[K,\n'}
+[9.783430] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[9.783842] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[9.784173] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/systems/controlAffineSystem.h:31:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgeometry_msgs\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[9.784639] (robot_projects_simulator) StderrLine: {'line': b'   31 |     virtual \x1b[01;31m\x1b[Kgeometry_msgs\x1b[m\x1b[K::msg::Transform getTransform() = 0;\n'}
+[9.785007] (robot_projects_simulator) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[9.820540] (-) TimerEvent: {}
+[9.921600] (-) TimerEvent: {}
+[10.022621] (-) TimerEvent: {}
+[10.123615] (-) TimerEvent: {}
+[10.224644] (-) TimerEvent: {}
+[10.267360] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[10.270288] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(SimObjectConfiguration, IPublisher*, ControlAffineSystem*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.270893] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:38:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KSimObject::name\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.271406] (robot_projects_simulator) StderrLine: {'line': b'   38 |     string \x1b[01;35m\x1b[Kname\x1b[m\x1b[K;\n'}
+[10.271726] (robot_projects_simulator) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[10.271950] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:34:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[KIPublisher* SimObject::visualizer\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.272227] (robot_projects_simulator) StderrLine: {'line': b'   34 |     IPublisher * \x1b[01;35m\x1b[Kvisualizer\x1b[m\x1b[K;\n'}
+[10.272564] (robot_projects_simulator) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.272759] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:15:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.272962] (robot_projects_simulator) StderrLine: {'line': b'   15 | \x1b[01;35m\x1b[KSimObject\x1b[m\x1b[K::SimObject(SimObjectConfiguration conf, IPublisher * viz, ControlAffineSystem * dyn)\n'}
+[10.273208] (robot_projects_simulator) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[10.273416] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[10.273759] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:35:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KSimObject::dynamics\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.273970] (robot_projects_simulator) StderrLine: {'line': b'   35 |     ControlAffineSystem * \x1b[01;35m\x1b[Kdynamics\x1b[m\x1b[K;\n'}
+[10.274193] (robot_projects_simulator) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[10.274396] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:31:14:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Duration SimObject::period\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.274644] (robot_projects_simulator) StderrLine: {'line': b'   31 |     Duration \x1b[01;35m\x1b[Kperiod\x1b[m\x1b[K;\n'}
+[10.274832] (robot_projects_simulator) StderrLine: {'line': b'      |              \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[10.275013] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:15:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.275345] (robot_projects_simulator) StderrLine: {'line': b'   15 | \x1b[01;35m\x1b[KSimObject\x1b[m\x1b[K::SimObject(SimObjectConfiguration conf, IPublisher * viz, ControlAffineSystem * dyn)\n'}
+[10.275638] (robot_projects_simulator) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[10.275833] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[10.276013] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:31:14:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KSimObject::period\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.279072] (robot_projects_simulator) StderrLine: {'line': b'   31 |     Duration \x1b[01;35m\x1b[Kperiod\x1b[m\x1b[K;\n'}
+[10.279440] (robot_projects_simulator) StderrLine: {'line': b'      |              \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[10.279897] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:29:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[KEigen::VectorXd SimObject::lastCtrl\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.280093] (robot_projects_simulator) StderrLine: {'line': b'   29 |     Eigen::VectorXd \x1b[01;35m\x1b[KlastCtrl\x1b[m\x1b[K;\n'}
+[10.280255] (robot_projects_simulator) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[10.280412] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:15:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K-Wreorder\x1b[m\x1b[K]\n'}
+[10.280597] (robot_projects_simulator) StderrLine: {'line': b'   15 | \x1b[01;35m\x1b[KSimObject\x1b[m\x1b[K::SimObject(SimObjectConfiguration conf, IPublisher * viz, ControlAffineSystem * dyn)\n'}
+[10.280757] (robot_projects_simulator) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[10.326669] (-) TimerEvent: {}
+[10.339182] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid SimObject::publishTransform()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.339641] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:38:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclass ControlAffineSystem\x1b[m\x1b[K\xe2\x80\x99 has no member named \xe2\x80\x98\x1b[01m\x1b[KgetTransform\x1b[m\x1b[K\xe2\x80\x99\n'}
+[10.339859] (robot_projects_simulator) StderrLine: {'line': b'   38 |     tfBase.transform = dynamics->\x1b[01;31m\x1b[KgetTransform\x1b[m\x1b[K();\n'}
+[10.340086] (robot_projects_simulator) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.432854] (-) TimerEvent: {}
+[10.533662] (-) TimerEvent: {}
+[10.634728] (-) TimerEvent: {}
+[10.738692] (-) TimerEvent: {}
+[10.751771] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:6\x1b[m\x1b[K,\n'}
+[10.752249] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[10.752473] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:2\x1b[m\x1b[K:\n'}
+[10.752716] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/systems/controlAffineSystem.h:31:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgeometry_msgs\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[10.752931] (robot_projects_simulator) StderrLine: {'line': b'   31 |     virtual \x1b[01;31m\x1b[Kgeometry_msgs\x1b[m\x1b[K::msg::Transform getTransform() = 0;\n'}
+[10.753172] (robot_projects_simulator) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.846764] (-) TimerEvent: {}
+[10.950461] (-) TimerEvent: {}
+[11.051262] (-) TimerEvent: {}
+[11.152788] (-) TimerEvent: {}
+[11.204040] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/memory:80\x1b[m\x1b[K,\n'}
+[11.208158] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:144\x1b[m\x1b[K,\n'}
+[11.208714] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simulation.h:4\x1b[m\x1b[K,\n'}
+[11.209532] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:1\x1b[m\x1b[K:\n'}
+[11.210049] (robot_projects_simulator) StderrLine: {'line': b'/usr/include/c++/9/bits/unique_ptr.h: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Ktypename std::_MakeUniq<_Tp>::__single_object std::make_unique(_Args&& ...) [with _Tp = SimObject; _Args = {SimObjectConfiguration&, IPublisher*&, ControlAffineSystem*&, rclcpp::Duration&}; typename std::_MakeUniq<_Tp>::__single_object = std::unique_ptr<SimObject>]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.210450] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:17:97:\x1b[m\x1b[K   required from here\n'}
+[11.210787] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/unique_ptr.h:857:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(SimObjectConfiguration&, IPublisher*&, ControlAffineSystem*&, rclcpp::Duration&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.211597] (robot_projects_simulator) StderrLine: {'line': b'  857 |     { return unique_ptr<_Tp>(\x1b[01;31m\x1b[Knew _Tp(std::forward<_Args>(__args)...)\x1b[m\x1b[K); }\n'}
+[11.212207] (robot_projects_simulator) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.212473] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simulation.h:7\x1b[m\x1b[K,\n'}
+[11.212774] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:1\x1b[m\x1b[K:\n'}
+[11.213596] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:46:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(SimObjectConfiguration, IPublisher*, ControlAffineSystem*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.214255] (robot_projects_simulator) StderrLine: {'line': b'   46 |     \x1b[01;36m\x1b[KSimObject\x1b[m\x1b[K(SimObjectConfiguration, IPublisher *, ControlAffineSystem *);\n'}
+[11.214574] (robot_projects_simulator) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[11.214980] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:46:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 3 arguments, 4 provided\n'}
+[11.215268] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:45:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(std::string, IPublisher*, ControlAffineSystem*, rclcpp::Duration)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.215514] (robot_projects_simulator) StderrLine: {'line': b'   45 |     \x1b[01;36m\x1b[KSimObject\x1b[m\x1b[K(string name, IPublisher *, ControlAffineSystem *, Duration);\n'}
+[11.215799] (robot_projects_simulator) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[11.216032] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:45:22:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[KSimObjectConfiguration\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::string\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<char>\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[11.216299] (robot_projects_simulator) StderrLine: {'line': b'   45 |     SimObject(\x1b[01;36m\x1b[Kstring name\x1b[m\x1b[K, IPublisher *, ControlAffineSystem *, Duration);\n'}
+[11.216533] (robot_projects_simulator) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[11.217035] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:26:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(const SimObject&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.217449] (robot_projects_simulator) StderrLine: {'line': b'   26 | class \x1b[01;36m\x1b[KSimObject\x1b[m\x1b[K {\n'}
+[11.217719] (robot_projects_simulator) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[11.217959] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:26:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 1 argument, 4 provided\n'}
+[11.218211] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:26:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[KSimObject::SimObject(SimObject&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.229867] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:26:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 1 argument, 4 provided\n'}
+[11.230292] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33\x1b[m\x1b[K,\n'}
+[11.230567] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/allocator.h:46\x1b[m\x1b[K,\n'}
+[11.230980] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/memory:63\x1b[m\x1b[K,\n'}
+[11.231363] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:144\x1b[m\x1b[K,\n'}
+[11.231712] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simulation.h:4\x1b[m\x1b[K,\n'}
+[11.232092] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:1\x1b[m\x1b[K:\n'}
+[11.232363] (robot_projects_simulator) StderrLine: {'line': b'/usr/include/c++/9/ext/new_allocator.h: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::unique_ptr<SimObject>; _Args = {const std::unique_ptr<SimObject, std::default_delete<SimObject> >&}; _Tp = std::unique_ptr<SimObject>]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.238756] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/alloc_traits.h:482:2:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::unique_ptr<SimObject>; _Args = {const std::unique_ptr<SimObject, std::default_delete<SimObject> >&}; _Tp = std::unique_ptr<SimObject>; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<std::unique_ptr<SimObject> >]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.239379] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/stl_vector.h:1189:30:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kvoid std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::unique_ptr<SimObject>; _Alloc = std::allocator<std::unique_ptr<SimObject> >; std::vector<_Tp, _Alloc>::value_type = std::unique_ptr<SimObject>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.239703] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:20:29:\x1b[m\x1b[K   required from here\n'}
+[11.239965] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/ext/new_allocator.h:145:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kuse of deleted function \xe2\x80\x98\x1b[01m\x1b[Kstd::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = SimObject; _Dp = std::default_delete<SimObject>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.240230] (robot_projects_simulator) StderrLine: {'line': b'  145 |  noexcept(noexcept(\x1b[01;31m\x1b[K::new((void *)__p)\x1b[m\x1b[K\n'}
+[11.240433] (robot_projects_simulator) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.240643] (robot_projects_simulator) StderrLine: {'line': b'  146 | \x1b[01;31m\x1b[K       _Up(std::forward<_Args>(__args)...)\x1b[m\x1b[K))\n'}
+[11.240865] (robot_projects_simulator) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.241079] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/memory:80\x1b[m\x1b[K,\n'}
+[11.241342] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:144\x1b[m\x1b[K,\n'}
+[11.241551] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simulation.h:4\x1b[m\x1b[K,\n'}
+[11.241836] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simulation.cpp:1\x1b[m\x1b[K:\n'}
+[11.242054] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/unique_ptr.h:414:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[11.242362] (robot_projects_simulator) StderrLine: {'line': b'  414 |       \x1b[01;36m\x1b[Kunique_ptr\x1b[m\x1b[K(const unique_ptr&) = delete;\n'}
+[11.242577] (robot_projects_simulator) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.253322] (-) TimerEvent: {}
+[11.306457] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:4\x1b[m\x1b[K:\n'}
+[11.309637] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/systems/simpleSE2.h:10:35:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgeometry_msgs::msg::Transform SimpleSE2::getTransform()\x1b[m\x1b[K\xe2\x80\x99 marked \xe2\x80\x98\x1b[01m\x1b[Koverride\x1b[m\x1b[K\xe2\x80\x99, but does not override\n'}
+[11.310008] (robot_projects_simulator) StderrLine: {'line': b'   10 |     geometry_msgs::msg::Transform \x1b[01;31m\x1b[KgetTransform\x1b[m\x1b[K() override;\n'}
+[11.310321] (robot_projects_simulator) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.353809] (-) TimerEvent: {}
+[11.429985] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.432936] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:31:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclass SimObjectConfiguration\x1b[m\x1b[K\xe2\x80\x99 has no member named \xe2\x80\x98\x1b[01m\x1b[Kframe_id\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[KframeId\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[11.433364] (robot_projects_simulator) StderrLine: {'line': b'   31 |   conf.\x1b[01;31m\x1b[Kframe_id\x1b[m\x1b[K = "base_link";\n'}
+[11.433666] (robot_projects_simulator) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[11.433952] (robot_projects_simulator) StderrLine: {'line': b'      |        \x1b[32m\x1b[KframeId\x1b[m\x1b[K\n'}
+[11.438559] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:37:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcannot convert \xe2\x80\x98\x1b[01m\x1b[Kconst char [11]\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[KSimObjectConfiguration\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.439082] (robot_projects_simulator) StderrLine: {'line': b'   37 |   sim->addObject(\x1b[01;31m\x1b[K"diff_drive"\x1b[m\x1b[K, &dyn, &viz);\n'}
+[11.439421] (robot_projects_simulator) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.439721] (robot_projects_simulator) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[11.439978] (robot_projects_simulator) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[Kconst char [11]\x1b[m\x1b[K\n'}
+[11.440249] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/executables/simple_sim.cpp:5\x1b[m\x1b[K:\n'}
+[11.440508] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simulation.h:31:43:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 1 of \xe2\x80\x98\x1b[01m\x1b[Kvoid Simulation::addObject(SimObjectConfiguration, ControlAffineSystem*, IPublisher*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.440772] (robot_projects_simulator) StderrLine: {'line': b'   31 |     void addObject(\x1b[01;36m\x1b[KSimObjectConfiguration conf\x1b[m\x1b[K, ControlAffineSystem * sys, IPublisher * viz);\n'}
+[11.441001] (robot_projects_simulator) StderrLine: {'line': b'      |                    \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[11.454320] (-) TimerEvent: {}
+[11.556840] (-) TimerEvent: {}
+[11.658844] (-) TimerEvent: {}
+[11.760860] (-) TimerEvent: {}
+[11.862869] (-) TimerEvent: {}
+[11.917556] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33\x1b[m\x1b[K,\n'}
+[11.923986] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/allocator.h:46\x1b[m\x1b[K,\n'}
+[11.926491] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/memory:63\x1b[m\x1b[K,\n'}
+[11.926991] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:144\x1b[m\x1b[K,\n'}
+[11.930413] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:4\x1b[m\x1b[K,\n'}
+[11.935041] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[11.935418] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[11.935588] (robot_projects_simulator) StderrLine: {'line': b'/usr/include/c++/9/ext/new_allocator.h: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = tf2_ros::TransformListener; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformListener]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.935792] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/alloc_traits.h:482:2:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = tf2_ros::TransformListener; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformListener; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<tf2_ros::TransformListener>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.935984] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:548:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformListener; _Alloc = std::allocator<tf2_ros::TransformListener>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.936163] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:679:16:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = tf2_ros::TransformListener; _Alloc = std::allocator<tf2_ros::TransformListener>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.936368] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:1344:71:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformListener>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformListener; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.936544] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:359:59:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformListener>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformListener]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.936708] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:701:14:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = tf2_ros::TransformListener; _Alloc = std::allocator<tf2_ros::TransformListener>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.936921] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:717:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = tf2_ros::TransformListener; _Args = {std::shared_ptr<tf2_ros::Buffer>&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.937088] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:66:66:\x1b[m\x1b[K   required from here\n'}
+[11.937278] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/ext/new_allocator.h:145:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformListener::TransformListener(std::shared_ptr<tf2_ros::Buffer>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.937455] (robot_projects_simulator) StderrLine: {'line': b'  145 |  noexcept(noexcept(\x1b[01;31m\x1b[K::new((void *)__p)\x1b[m\x1b[K\n'}
+[11.937623] (robot_projects_simulator) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.937800] (robot_projects_simulator) StderrLine: {'line': b'  146 | \x1b[01;31m\x1b[K       _Up(std::forward<_Args>(__args)...)\x1b[m\x1b[K))\n'}
+[11.937968] (robot_projects_simulator) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.938123] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:9\x1b[m\x1b[K,\n'}
+[11.942423] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[11.942821] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_listener.h:58:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class NodeT, class AllocatorT> tf2_ros::TransformListener::TransformListener(tf2::BufferCore&, NodeT&&, bool, const rclcpp::QoS&, const rclcpp::QoS&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.943074] (robot_projects_simulator) StderrLine: {'line': b'   58 |   \x1b[01;36m\x1b[KTransformListener\x1b[m\x1b[K(\n'}
+[11.943336] (robot_projects_simulator) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.943543] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_listener.h:58:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[11.943727] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33\x1b[m\x1b[K,\n'}
+[11.943940] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/bits/allocator.h:46\x1b[m\x1b[K,\n'}
+[11.944113] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/9/memory:63\x1b[m\x1b[K,\n'}
+[11.944301] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:144\x1b[m\x1b[K,\n'}
+[11.944485] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:4\x1b[m\x1b[K,\n'}
+[11.944671] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[11.944872] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[11.945038] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/ext/new_allocator.h:145:20:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 6 arguments, 1 provided\n'}
+[11.945199] (robot_projects_simulator) StderrLine: {'line': b'  145 |  noexcept(noexcept(\x1b[01;36m\x1b[K::new((void *)__p)\x1b[m\x1b[K\n'}
+[11.945391] (robot_projects_simulator) StderrLine: {'line': b'      |                    \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.945570] (robot_projects_simulator) StderrLine: {'line': b'  146 | \x1b[01;36m\x1b[K       _Up(std::forward<_Args>(__args)...)\x1b[m\x1b[K))\n'}
+[11.945729] (robot_projects_simulator) StderrLine: {'line': b'      |        \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.945924] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:9\x1b[m\x1b[K,\n'}
+[11.946083] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[11.946253] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_listener.h:55:12:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformListener::TransformListener(tf2::BufferCore&, bool)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.955243] (robot_projects_simulator) StderrLine: {'line': b'   55 |   explicit \x1b[01;36m\x1b[KTransformListener\x1b[m\x1b[K(tf2::BufferCore & buffer, bool spin_thread = true);\n'}
+[11.955591] (robot_projects_simulator) StderrLine: {'line': b'      |            \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.955856] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_listener.h:55:48:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<tf2_ros::Buffer>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Ktf2::BufferCore&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[11.956067] (robot_projects_simulator) StderrLine: {'line': b'   55 |   explicit TransformListener(\x1b[01;36m\x1b[Ktf2::BufferCore & buffer\x1b[m\x1b[K, bool spin_thread = true);\n'}
+[11.956252] (robot_projects_simulator) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[11.963690] (-) TimerEvent: {}
+[12.065910] (-) TimerEvent: {}
+[12.167909] (-) TimerEvent: {}
+[12.269938] (-) TimerEvent: {}
+[12.372447] (-) TimerEvent: {}
+[12.395845] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/create_publisher.hpp:21\x1b[m\x1b[K,\n'}
+[12.401315] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:39\x1b[m\x1b[K,\n'}
+[12.405187] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node.hpp:1221\x1b[m\x1b[K,\n'}
+[12.405665] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28\x1b[m\x1b[K,\n'}
+[12.406009] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:22\x1b[m\x1b[K,\n'}
+[12.406528] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[12.415726] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:4\x1b[m\x1b[K,\n'}
+[12.418503] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[12.419002] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[12.419393] (robot_projects_simulator) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<rclcpp::node_interfaces::NodeTopicsInterface> rclcpp::node_interfaces::get_node_topics_interface(NodeType&&) [with NodeType = std::shared_ptr<tf2_ros::Buffer>&; typename std::enable_if<rcpputils::is_pointer<T>::value, int>::type <anonymous> = 0]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.421188] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/create_publisher.hpp:54:47:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<PublisherT> rclcpp::create_publisher(NodeT&, const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&) [with MessageT = tf2_msgs::msg::TFMessage_<std::allocator<void> >; AllocatorT = std::allocator<void>; PublisherT = rclcpp::Publisher<tf2_msgs::msg::TFMessage_<std::allocator<void> > >; NodeT = std::shared_ptr<tf2_ros::Buffer>; std::string = std::__cxx11::basic_string<char>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.421785] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_broadcaster.h:59:68:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformBroadcaster::TransformBroadcaster(NodeT&&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&) [with NodeT = std::shared_ptr<tf2_ros::Buffer>&; AllocatorT = std::allocator<void>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.425772] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/ext/new_allocator.h:147:4:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = tf2_ros::TransformBroadcaster; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformBroadcaster]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.426408] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/alloc_traits.h:484:4:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = tf2_ros::TransformBroadcaster; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformBroadcaster; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<tf2_ros::TransformBroadcaster>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.426823] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:548:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.427229] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:679:16:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.427662] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:1344:71:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformBroadcaster; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.428107] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:359:59:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}; _Tp = tf2_ros::TransformBroadcaster]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.428476] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:701:14:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {std::shared_ptr<tf2_ros::Buffer>&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.430569] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:717:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Args = {std::shared_ptr<tf2_ros::Buffer>&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.431089] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:67:70:\x1b[m\x1b[K   required from here\n'}
+[12.431480] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:75:56:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kget_node_topics_interface_from_pointer(std::shared_ptr<tf2_ros::Buffer>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.431825] (robot_projects_simulator) StderrLine: {'line': b'   75 |   return \x1b[01;31m\x1b[Kdetail::get_node_topics_interface_from_pointer(node)\x1b[m\x1b[K;\n'}
+[12.433452] (robot_projects_simulator) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[12.433993] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:53:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class NodeType, typename std::enable_if<rclcpp::node_interfaces::has_node_topics_interface<typename rcpputils::remove_pointer<T>::type>::value, int>::type <anonymous> > std::shared_ptr<rclcpp::node_interfaces::NodeTopicsInterface> rclcpp::node_interfaces::detail::get_node_topics_interface_from_pointer(NodeType)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.434303] (robot_projects_simulator) StderrLine: {'line': b'   53 | \x1b[01;36m\x1b[Kget_node_topics_interface_from_pointer\x1b[m\x1b[K(NodeType node_pointer)\n'}
+[12.435564] (robot_projects_simulator) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[12.435986] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:53:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[12.441561] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:50:26:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno type named \xe2\x80\x98\x1b[01m\x1b[Ktype\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kstruct std::enable_if<false, int>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[12.441939] (robot_projects_simulator) StderrLine: {'line': b'   50 |   >::value, int>::type = \x1b[01;31m\x1b[K0\x1b[m\x1b[K\n'}
+[12.442132] (robot_projects_simulator) StderrLine: {'line': b'      |                          \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[12.472947] (-) TimerEvent: {}
+[12.574967] (-) TimerEvent: {}
+[12.676979] (-) TimerEvent: {}
+[12.778507] (-) TimerEvent: {}
+[12.880933] (-) TimerEvent: {}
+[12.929939] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot_projects_simulator.dir/build.make:102: CMakeFiles/robot_projects_simulator.dir/src/simulation.cpp.o] Error 1\n'}
+[12.989655] (-) TimerEvent: {}
+[13.090592] (-) TimerEvent: {}
+[13.191531] (-) TimerEvent: {}
+[13.293569] (-) TimerEvent: {}
+[13.395574] (-) TimerEvent: {}
+[13.498142] (-) TimerEvent: {}
+[13.600287] (-) TimerEvent: {}
+[13.702612] (-) TimerEvent: {}
+[13.750820] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot_projects_simulator.dir/build.make:63: CMakeFiles/robot_projects_simulator.dir/src/executables/simple_sim.cpp.o] Error 1\n'}
+[13.804616] (-) TimerEvent: {}
+[13.906626] (-) TimerEvent: {}
+[14.007615] (-) TimerEvent: {}
+[14.108631] (-) TimerEvent: {}
+[14.209704] (-) TimerEvent: {}
+[14.310652] (-) TimerEvent: {}
+[14.402983] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot_projects_simulator.dir/build.make:89: CMakeFiles/robot_projects_simulator.dir/src/simObject.cpp.o] Error 1\n'}
+[14.404989] (robot_projects_simulator) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/robot_projects_simulator.dir/all] Error 2\n'}
+[14.408136] (robot_projects_simulator) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[14.408527] (robot_projects_simulator) CommandEnded: {'returncode': 2}
+[14.412814] (-) TimerEvent: {}
+[14.517400] (-) TimerEvent: {}
+[14.567299] (robot_projects_simulator) JobEnded: {'identifier': 'robot_projects_simulator', 'rc': 2}
+[14.622653] (-) TimerEvent: {}
+[14.623007] (-) EventReactorShutdown: {}

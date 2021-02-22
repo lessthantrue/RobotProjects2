@@ -18,6 +18,7 @@ find_package(Eigen3 3.3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 find_package(visualization_msgs REQUIRED)
 
 set(dependencies 
@@ -25,6 +26,7 @@ set(dependencies
   Eigen3
   geometry_msgs
   tf2
+  tf2_ros
   visualization_msgs
 )
 

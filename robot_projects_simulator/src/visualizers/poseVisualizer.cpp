@@ -9,10 +9,6 @@ PoseStamped PoseVisualizer::getPublishData(){
     return message;
 }
 
-void PoseVisualizer::setFrame(string s){
-    frameId = s;
-}
-
 void PoseVisualizer::setMessage(ControlAffineSystem * sys){
     message.pose.position.x = sys->getValueByName("x");
     message.pose.position.y = sys->getValueByName("y");

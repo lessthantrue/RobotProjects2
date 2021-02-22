@@ -10,10 +10,16 @@ Simulation::Simulation(Duration timeStep)
     rclcpp::QoS qos(1);
     qos.transient_local();
     markerPub = this->create_publisher<MarkerArray>("simulation/points", qos);
+    buffer = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+    RCLCPP_INFO(this->get_logger(), "Simulation Initialized");
 }
 
-void Simulation::addObject(string name, ControlAffineSystem * sys, IPublisher * viz){
-    simObjects.emplace_back(name, viz, sys, defaultTimeStep);
+void Simulation::addObject(SimObjectConfiguration conf, ControlAffineSystem * sys, IPublisher * viz){
+    RCLCPP_INFO(this->get_logger(), "Adding object %s", conf.name.c_str());
+    std::shared_ptr<SimObject> obj = std::make_shared<SimObject>(conf, viz, sys);
+    obj->attach(this->shared_from_this());
+    obj->attachTf(buffer, this->shared_from_this());
+    simObjects.push_back(obj);
 }
 
 void Simulation::timeStep(){
@@ -31,6 +37,5 @@ void Simulation::addPoints(vector<SensablePoint> newPoints){
 void Simulation::addPoint(SensablePoint p){
     points.push_back(p);
     markerMsg.markers.push_back(p.toMarker());
-    RCLCPP_INFO(this->get_logger(), "We have %d points in the world", markerMsg.markers.size());
     markerPub->publish(markerMsg);
 }

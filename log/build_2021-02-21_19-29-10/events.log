@@ -1,0 +1,325 @@
+[0.000000] (-) TimerEvent: {}
+[0.000259] (robot_projects_simulator) JobQueued: {'identifier': 'robot_projects_simulator', 'dependencies': OrderedDict()}
+[0.000327] (robot_projects_simulator) JobStarted: {'identifier': 'robot_projects_simulator'}
+[0.185948] (-) TimerEvent: {}
+[0.313941] (-) TimerEvent: {}
+[0.414444] (-) TimerEvent: {}
+[0.557932] (-) TimerEvent: {}
+[0.729442] (-) TimerEvent: {}
+[0.830572] (-) TimerEvent: {}
+[0.931617] (-) TimerEvent: {}
+[0.993179] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'cmake'}
+[1.033343] (-) TimerEvent: {}
+[1.136637] (-) TimerEvent: {}
+[1.182534] (robot_projects_simulator) JobProgress: {'identifier': 'robot_projects_simulator', 'progress': 'build'}
+[1.183744] (robot_projects_simulator) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/nick/dev_ws/src/build/robot_projects_simulator', '--', '-j4', '-l4'], 'cwd': '/home/nick/dev_ws/src/build/robot_projects_simulator', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'nick'), ('SSH_AGENT_PID', '1508'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nick/dev_ws/install/robot_projects_simulator/lib:/home/nick/dev_ws/install/turtlesim/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/nick'), ('OLDPWD', '/home/nick/dev_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1331'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/nick/dev_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'nick'), ('JOURNAL_STREAM', '8:51662'), ('_', '/home/nick/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nick'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/nick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1543,unix/ubuntu:/tmp/.ICE-unix/1543'), ('INVOCATION_ID', '1f0756de1fa6437aab827f9fd730ea9f'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/636a54af_ddda_49e4_abdc_213368e8354f'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.146'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nick/dev_ws/src/build/robot_projects_simulator'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nick/dev_ws/install/turtlesim/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/nick/dev_ws/install/robot_projects_simulator:/home/nick/dev_ws/install/turtlesim:/home/nick/dev_ws/install/test_package:/home/nick/dev_ws/install/nick_projects:/opt/ros/foxy')]), 'shell': False}
+[1.237282] (-) TimerEvent: {}
+[1.569117] (-) TimerEvent: {}
+[1.670846] (-) TimerEvent: {}
+[1.772298] (-) TimerEvent: {}
+[1.873555] (-) TimerEvent: {}
+[2.014727] (-) TimerEvent: {}
+[2.139723] (-) TimerEvent: {}
+[2.241594] (-) TimerEvent: {}
+[2.342612] (-) TimerEvent: {}
+[2.443619] (-) TimerEvent: {}
+[2.544604] (-) TimerEvent: {}
+[2.645611] (-) TimerEvent: {}
+[2.746669] (-) TimerEvent: {}
+[2.847631] (-) TimerEvent: {}
+[3.016673] (-) TimerEvent: {}
+[3.264407] (robot_projects_simulator) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_projects_simulator\x1b[0m\n'}
+[3.264853] (-) TimerEvent: {}
+[3.420486] (-) TimerEvent: {}
+[3.522032] (-) TimerEvent: {}
+[3.624195] (-) TimerEvent: {}
+[3.725212] (-) TimerEvent: {}
+[3.827256] (-) TimerEvent: {}
+[3.927784] (-) TimerEvent: {}
+[4.028464] (-) TimerEvent: {}
+[4.084739] (robot_projects_simulator) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/executables/simple_sim.cpp.o\x1b[0m\n'}
+[4.128749] (-) TimerEvent: {}
+[4.229870] (-) TimerEvent: {}
+[4.330807] (-) TimerEvent: {}
+[4.431773] (-) TimerEvent: {}
+[4.534371] (-) TimerEvent: {}
+[4.635565] (-) TimerEvent: {}
+[4.736470] (-) TimerEvent: {}
+[4.840115] (-) TimerEvent: {}
+[4.941793] (-) TimerEvent: {}
+[5.042794] (-) TimerEvent: {}
+[5.143864] (-) TimerEvent: {}
+[5.286408] (-) TimerEvent: {}
+[5.395058] (-) TimerEvent: {}
+[5.513683] (-) TimerEvent: {}
+[5.722878] (-) TimerEvent: {}
+[5.823929] (-) TimerEvent: {}
+[5.924900] (-) TimerEvent: {}
+[6.026047] (-) TimerEvent: {}
+[6.126952] (-) TimerEvent: {}
+[6.228877] (-) TimerEvent: {}
+[6.329874] (-) TimerEvent: {}
+[6.430897] (-) TimerEvent: {}
+[6.531923] (-) TimerEvent: {}
+[6.632929] (-) TimerEvent: {}
+[6.734035] (-) TimerEvent: {}
+[6.834974] (-) TimerEvent: {}
+[6.936067] (-) TimerEvent: {}
+[7.037002] (-) TimerEvent: {}
+[7.137988] (-) TimerEvent: {}
+[7.239965] (-) TimerEvent: {}
+[7.340998] (-) TimerEvent: {}
+[7.441991] (-) TimerEvent: {}
+[7.543182] (-) TimerEvent: {}
+[7.644070] (-) TimerEvent: {}
+[7.745084] (-) TimerEvent: {}
+[7.846092] (-) TimerEvent: {}
+[7.947113] (-) TimerEvent: {}
+[8.048103] (-) TimerEvent: {}
+[8.149215] (-) TimerEvent: {}
+[8.250130] (-) TimerEvent: {}
+[8.351147] (-) TimerEvent: {}
+[8.452123] (-) TimerEvent: {}
+[8.553077] (-) TimerEvent: {}
+[8.654151] (-) TimerEvent: {}
+[8.755140] (-) TimerEvent: {}
+[8.856239] (-) TimerEvent: {}
+[8.957142] (-) TimerEvent: {}
+[9.058142] (-) TimerEvent: {}
+[9.159130] (-) TimerEvent: {}
+[9.260141] (-) TimerEvent: {}
+[9.361182] (-) TimerEvent: {}
+[9.462168] (-) TimerEvent: {}
+[9.563165] (-) TimerEvent: {}
+[9.664161] (-) TimerEvent: {}
+[9.765180] (-) TimerEvent: {}
+[9.866197] (-) TimerEvent: {}
+[9.967189] (-) TimerEvent: {}
+[10.068202] (-) TimerEvent: {}
+[10.169201] (-) TimerEvent: {}
+[10.270200] (-) TimerEvent: {}
+[10.371250] (-) TimerEvent: {}
+[10.472248] (-) TimerEvent: {}
+[10.573217] (-) TimerEvent: {}
+[10.674287] (-) TimerEvent: {}
+[10.775235] (-) TimerEvent: {}
+[10.876279] (-) TimerEvent: {}
+[10.977286] (-) TimerEvent: {}
+[11.078275] (-) TimerEvent: {}
+[11.179279] (-) TimerEvent: {}
+[11.280323] (-) TimerEvent: {}
+[11.381338] (-) TimerEvent: {}
+[11.482306] (-) TimerEvent: {}
+[11.583300] (-) TimerEvent: {}
+[11.684329] (-) TimerEvent: {}
+[11.785324] (-) TimerEvent: {}
+[11.886345] (-) TimerEvent: {}
+[11.987344] (-) TimerEvent: {}
+[12.088349] (-) TimerEvent: {}
+[12.189352] (-) TimerEvent: {}
+[12.290350] (-) TimerEvent: {}
+[12.446462] (-) TimerEvent: {}
+[12.550540] (-) TimerEvent: {}
+[12.668755] (-) TimerEvent: {}
+[12.770685] (-) TimerEvent: {}
+[12.871734] (-) TimerEvent: {}
+[12.972547] (-) TimerEvent: {}
+[13.075921] (-) TimerEvent: {}
+[13.176869] (-) TimerEvent: {}
+[13.277386] (-) TimerEvent: {}
+[13.378018] (-) TimerEvent: {}
+[13.479618] (-) TimerEvent: {}
+[13.580094] (-) TimerEvent: {}
+[13.681088] (-) TimerEvent: {}
+[13.782073] (-) TimerEvent: {}
+[13.882775] (-) TimerEvent: {}
+[13.983658] (-) TimerEvent: {}
+[14.004935] (robot_projects_simulator) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simulation.cpp.o\x1b[0m\n'}
+[14.087116] (-) TimerEvent: {}
+[14.188693] (-) TimerEvent: {}
+[14.289497] (-) TimerEvent: {}
+[14.390349] (-) TimerEvent: {}
+[14.491058] (-) TimerEvent: {}
+[14.591619] (-) TimerEvent: {}
+[14.692553] (-) TimerEvent: {}
+[14.793388] (-) TimerEvent: {}
+[14.894372] (-) TimerEvent: {}
+[14.995609] (-) TimerEvent: {}
+[15.098133] (-) TimerEvent: {}
+[15.199105] (-) TimerEvent: {}
+[15.299575] (-) TimerEvent: {}
+[15.400593] (-) TimerEvent: {}
+[15.501627] (-) TimerEvent: {}
+[15.602597] (-) TimerEvent: {}
+[15.703344] (-) TimerEvent: {}
+[15.803918] (-) TimerEvent: {}
+[15.904936] (-) TimerEvent: {}
+[16.005883] (-) TimerEvent: {}
+[16.108676] (-) TimerEvent: {}
+[16.209251] (-) TimerEvent: {}
+[16.309837] (-) TimerEvent: {}
+[16.410461] (-) TimerEvent: {}
+[16.511416] (-) TimerEvent: {}
+[16.612685] (-) TimerEvent: {}
+[16.713686] (-) TimerEvent: {}
+[16.814678] (-) TimerEvent: {}
+[16.915704] (-) TimerEvent: {}
+[17.019136] (-) TimerEvent: {}
+[17.120719] (-) TimerEvent: {}
+[17.221746] (-) TimerEvent: {}
+[17.322479] (-) TimerEvent: {}
+[17.423243] (-) TimerEvent: {}
+[17.523735] (-) TimerEvent: {}
+[17.624179] (-) TimerEvent: {}
+[17.724974] (-) TimerEvent: {}
+[17.825687] (-) TimerEvent: {}
+[17.926233] (-) TimerEvent: {}
+[18.026780] (-) TimerEvent: {}
+[18.129512] (-) TimerEvent: {}
+[18.230300] (-) TimerEvent: {}
+[18.331196] (-) TimerEvent: {}
+[18.431835] (-) TimerEvent: {}
+[18.532598] (-) TimerEvent: {}
+[18.633636] (-) TimerEvent: {}
+[18.734865] (-) TimerEvent: {}
+[18.836017] (-) TimerEvent: {}
+[18.936968] (-) TimerEvent: {}
+[19.038244] (-) TimerEvent: {}
+[19.141956] (-) TimerEvent: {}
+[19.243621] (-) TimerEvent: {}
+[19.344383] (-) TimerEvent: {}
+[19.445038] (-) TimerEvent: {}
+[19.545947] (-) TimerEvent: {}
+[19.646521] (-) TimerEvent: {}
+[19.755100] (-) TimerEvent: {}
+[19.856364] (-) TimerEvent: {}
+[19.958233] (-) TimerEvent: {}
+[20.059147] (-) TimerEvent: {}
+[20.161743] (-) TimerEvent: {}
+[20.262628] (-) TimerEvent: {}
+[20.363160] (-) TimerEvent: {}
+[20.464184] (-) TimerEvent: {}
+[20.565227] (-) TimerEvent: {}
+[20.666184] (-) TimerEvent: {}
+[20.767209] (-) TimerEvent: {}
+[20.868321] (-) TimerEvent: {}
+[20.969030] (-) TimerEvent: {}
+[21.070192] (-) TimerEvent: {}
+[21.173992] (-) TimerEvent: {}
+[21.274570] (-) TimerEvent: {}
+[21.376062] (-) TimerEvent: {}
+[21.477076] (-) TimerEvent: {}
+[21.578043] (-) TimerEvent: {}
+[21.632757] (robot_projects_simulator) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simObject.cpp.o\x1b[0m\n'}
+[21.678518] (-) TimerEvent: {}
+[21.779308] (-) TimerEvent: {}
+[21.880208] (-) TimerEvent: {}
+[21.981266] (-) TimerEvent: {}
+[21.983097] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/9/backward/strstream:50\x1b[m\x1b[K,\n'}
+[21.983531] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:3\x1b[m\x1b[K:\n'}
+[21.983728] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/backward/backward_warning.h:32:2:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K#warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [\x1b[01;35m\x1b[K-Wcpp\x1b[m\x1b[K]\n'}
+[21.983906] (robot_projects_simulator) StderrLine: {'line': b'   32 | #\x1b[01;35m\x1b[Kwarning\x1b[m\x1b[K \\\n'}
+[21.984152] (robot_projects_simulator) StderrLine: {'line': b'      |  \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.082102] (-) TimerEvent: {}
+[22.183962] (-) TimerEvent: {}
+[22.285112] (-) TimerEvent: {}
+[22.386102] (-) TimerEvent: {}
+[22.486837] (-) TimerEvent: {}
+[22.588142] (-) TimerEvent: {}
+[22.689136] (-) TimerEvent: {}
+[22.790159] (-) TimerEvent: {}
+[22.891183] (-) TimerEvent: {}
+[22.992184] (-) TimerEvent: {}
+[23.093177] (-) TimerEvent: {}
+[23.193912] (-) TimerEvent: {}
+[23.295206] (-) TimerEvent: {}
+[23.396186] (-) TimerEvent: {}
+[23.497203] (-) TimerEvent: {}
+[23.598226] (-) TimerEvent: {}
+[23.699204] (-) TimerEvent: {}
+[23.800254] (-) TimerEvent: {}
+[23.901234] (-) TimerEvent: {}
+[24.002247] (-) TimerEvent: {}
+[24.103006] (-) TimerEvent: {}
+[24.204676] (-) TimerEvent: {}
+[24.306490] (-) TimerEvent: {}
+[24.407464] (-) TimerEvent: {}
+[24.508401] (-) TimerEvent: {}
+[24.609563] (-) TimerEvent: {}
+[24.710485] (-) TimerEvent: {}
+[24.811544] (-) TimerEvent: {}
+[24.912492] (-) TimerEvent: {}
+[25.013417] (-) TimerEvent: {}
+[25.114714] (-) TimerEvent: {}
+[25.215335] (-) TimerEvent: {}
+[25.316593] (-) TimerEvent: {}
+[25.417346] (-) TimerEvent: {}
+[25.518357] (-) TimerEvent: {}
+[25.619522] (-) TimerEvent: {}
+[25.720623] (-) TimerEvent: {}
+[25.821482] (-) TimerEvent: {}
+[25.922405] (-) TimerEvent: {}
+[26.023380] (-) TimerEvent: {}
+[26.124496] (-) TimerEvent: {}
+[26.225405] (-) TimerEvent: {}
+[26.326380] (-) TimerEvent: {}
+[26.427575] (-) TimerEvent: {}
+[26.528458] (-) TimerEvent: {}
+[26.629623] (-) TimerEvent: {}
+[26.730453] (-) TimerEvent: {}
+[26.785463] (robot_projects_simulator) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/create_publisher.hpp:21\x1b[m\x1b[K,\n'}
+[26.786388] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:39\x1b[m\x1b[K,\n'}
+[26.786743] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node.hpp:1221\x1b[m\x1b[K,\n'}
+[26.787007] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28\x1b[m\x1b[K,\n'}
+[26.787250] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:22\x1b[m\x1b[K,\n'}
+[26.787519] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[26.787748] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/ipublisher.h:4\x1b[m\x1b[K,\n'}
+[26.787970] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/include/simObject.h:4\x1b[m\x1b[K,\n'}
+[26.788840] (robot_projects_simulator) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:1\x1b[m\x1b[K:\n'}
+[26.789111] (robot_projects_simulator) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<rclcpp::node_interfaces::NodeTopicsInterface> rclcpp::node_interfaces::get_node_topics_interface(NodeType&&) [with NodeType = tf2_ros::Buffer&; typename std::enable_if<(! rcpputils::is_pointer<T>::value), int>::type <anonymous> = 0]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[26.789464] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/create_publisher.hpp:54:47:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<PublisherT> rclcpp::create_publisher(NodeT&, const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&) [with MessageT = tf2_msgs::msg::TFMessage_<std::allocator<void> >; AllocatorT = std::allocator<void>; PublisherT = rclcpp::Publisher<tf2_msgs::msg::TFMessage_<std::allocator<void> > >; NodeT = tf2_ros::Buffer; std::string = std::__cxx11::basic_string<char>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.789720] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/tf2_ros/transform_broadcaster.h:59:68:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformBroadcaster::TransformBroadcaster(NodeT&&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&) [with NodeT = tf2_ros::Buffer&; AllocatorT = std::allocator<void>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.789952] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/ext/new_allocator.h:147:4:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = tf2_ros::TransformBroadcaster; _Args = {tf2_ros::Buffer&}; _Tp = tf2_ros::TransformBroadcaster]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.790159] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/alloc_traits.h:484:4:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = tf2_ros::TransformBroadcaster; _Args = {tf2_ros::Buffer&}; _Tp = tf2_ros::TransformBroadcaster; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<tf2_ros::TransformBroadcaster>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.790396] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:548:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {tf2_ros::Buffer&}; _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.790643] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:679:16:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {tf2_ros::Buffer&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.790883] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr_base.h:1344:71:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {tf2_ros::Buffer&}; _Tp = tf2_ros::TransformBroadcaster; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.791101] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:359:59:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {tf2_ros::Buffer&}; _Tp = tf2_ros::TransformBroadcaster]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.791348] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:701:14:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Alloc = std::allocator<tf2_ros::TransformBroadcaster>; _Args = {tf2_ros::Buffer&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.791557] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/9/bits/shared_ptr.h:717:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Args = {tf2_ros::Buffer&}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.791759] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/home/nick/dev_ws/src/robot_projects_simulator/src/simObject.cpp:67:71:\x1b[m\x1b[K   required from here\n'}
+[26.791960] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:90:56:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kget_node_topics_interface_from_pointer(tf2_ros::Buffer*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.792169] (robot_projects_simulator) StderrLine: {'line': b'   90 |   return \x1b[01;31m\x1b[Kdetail::get_node_topics_interface_from_pointer(&node)\x1b[m\x1b[K;\n'}
+[26.792467] (robot_projects_simulator) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~\x1b[m\x1b[K\n'}
+[26.792681] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:53:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class NodeType, typename std::enable_if<rclcpp::node_interfaces::has_node_topics_interface<typename rcpputils::remove_pointer<T>::type>::value, int>::type <anonymous> > std::shared_ptr<rclcpp::node_interfaces::NodeTopicsInterface> rclcpp::node_interfaces::detail::get_node_topics_interface_from_pointer(NodeType)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.792905] (robot_projects_simulator) StderrLine: {'line': b'   53 | \x1b[01;36m\x1b[Kget_node_topics_interface_from_pointer\x1b[m\x1b[K(NodeType node_pointer)\n'}
+[26.793101] (robot_projects_simulator) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[26.793303] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:53:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[26.793534] (robot_projects_simulator) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_interfaces/get_node_topics_interface.hpp:50:26:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno type named \xe2\x80\x98\x1b[01m\x1b[Ktype\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kstruct std::enable_if<false, int>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[26.793739] (robot_projects_simulator) StderrLine: {'line': b'   50 |   >::value, int>::type = \x1b[01;31m\x1b[K0\x1b[m\x1b[K\n'}
+[26.793941] (robot_projects_simulator) StderrLine: {'line': b'      |                          \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[26.836645] (-) TimerEvent: {}
+[26.939424] (-) TimerEvent: {}
+[27.041466] (-) TimerEvent: {}
+[27.142494] (-) TimerEvent: {}
+[27.243125] (-) TimerEvent: {}
+[27.344160] (-) TimerEvent: {}
+[27.445206] (-) TimerEvent: {}
+[27.546626] (-) TimerEvent: {}
+[27.647553] (-) TimerEvent: {}
+[27.748571] (-) TimerEvent: {}
+[27.849411] (-) TimerEvent: {}
+[27.950548] (-) TimerEvent: {}
+[28.051108] (-) TimerEvent: {}
+[28.151764] (-) TimerEvent: {}
+[28.252229] (-) TimerEvent: {}
+[28.352985] (-) TimerEvent: {}
+[28.441672] (robot_projects_simulator) StderrLine: {'line': b'make[2]: *** [CMakeFiles/robot_projects_simulator.dir/build.make:89: CMakeFiles/robot_projects_simulator.dir/src/simObject.cpp.o] Error 1\n'}
+[28.442149] (robot_projects_simulator) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/robot_projects_simulator.dir/all] Error 2\n'}
+[28.442342] (robot_projects_simulator) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[28.448183] (robot_projects_simulator) CommandEnded: {'returncode': 2}
+[28.455183] (-) TimerEvent: {}
+[28.558330] (-) TimerEvent: {}
+[28.669430] (-) TimerEvent: {}
+[28.734068] (robot_projects_simulator) JobEnded: {'identifier': 'robot_projects_simulator', 'rc': 2}
+[28.739535] (-) EventReactorShutdown: {}
