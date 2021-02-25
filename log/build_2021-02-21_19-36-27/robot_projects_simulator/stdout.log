@@ -1,7 +1,0 @@
-[35m[1mScanning dependencies of target robot_projects_simulator[0m
-[ 10%] [32mBuilding CXX object CMakeFiles/robot_projects_simulator.dir/src/simulation.cpp.o[0m
-[ 20%] [32m[1mLinking CXX shared library librobot_projects_simulator.so[0m
-[ 80%] Built target robot_projects_simulator
-[35m[1mScanning dependencies of target simple_sim[0m
-[ 90%] [32mBuilding CXX object CMakeFiles/simple_sim.dir/src/executables/simple_sim.cpp.o[0m
-[100%] [32m[1mLinking CXX executable simple_sim[0m

@@ -32,7 +32,6 @@ set(dependencies
 
 file(GLOB all_srcs src/*.cpp src/*/*.cpp)
 
-file(GLOB system_srcs src/systems/*.cpp)
 set(SIMULATION_LIB robot_projects_simulator)
 add_library(${SIMULATION_LIB} SHARED
   ${all_srcs})
@@ -43,7 +42,6 @@ target_include_directories(${SIMULATION_LIB} PUBLIC
 
 ament_target_dependencies(${SIMULATION_LIB} ${dependencies})
 
-file(GLOB base_srcs src/*.cpp)
 add_executable(simple_sim src/executables/simple_sim.cpp)
 target_link_libraries(simple_sim ${SIMULATION_LIB})
 
