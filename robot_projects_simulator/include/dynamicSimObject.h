@@ -3,7 +3,7 @@
 
 #include "ipublisher.h"
 #include "simObject.h"
-#include "systems/controlAffineSystem.h"
+#include "systems/system.h"
 #include <std_msgs/msg/float64_multi_array.hpp>
 #include <eigen3/Eigen/Eigen>
 #include <tf2_ros/buffer.h>
@@ -29,7 +29,7 @@ private:
     void stepTime(double dt);
 protected:
     IPublisher * visualizer;
-    ControlAffineSystem * dynamics;
+    System * dynamics;
     Subscription<Float64MultiArray>::SharedPtr controlSub;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tfPublisher;
     virtual void timerCallback() override;

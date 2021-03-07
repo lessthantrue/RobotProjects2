@@ -9,7 +9,7 @@ PoseStamped PoseVisualizer::getPublishData(){
     return message;
 }
 
-void PoseVisualizer::setMessage(ControlAffineSystem * sys){
+void PoseVisualizer::setMessage(System * sys){
     message.pose.position.x = sys->getValueByName("x");
     message.pose.position.y = sys->getValueByName("y");
     message.pose.position.z = 0;

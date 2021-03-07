@@ -10,5 +10,5 @@ private:
 protected:
     PoseStamped getPublishData() override;
 public:
-    void setMessage(ControlAffineSystem *) override;
+    void setMessage(System *) override;
 };

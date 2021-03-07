@@ -7,9 +7,9 @@
 
 SimpleSE2::SimpleSE2(double x, double y, double h)
     : ControlAffineSystem(Eigen::Vector3d(x, y, h)){
-    stateVectorMap["x"] = 0;
-    stateVectorMap["y"] = 1;
-    stateVectorMap["h"] = 2;
+    semanticStateMap["x"] = 0;
+    semanticStateMap["y"] = 1;
+    semanticStateMap["h"] = 2;
     _dimX = 3;
     _dimU = 2;
 }

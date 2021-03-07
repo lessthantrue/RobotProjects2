@@ -3,7 +3,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <string>
-#include "systems/controlAffineSystem.h"
+#include "systems/system.h"
 
 using std::string;
 using namespace rclcpp;
@@ -15,7 +15,7 @@ protected:
 public:
     virtual void publish() = 0;
     virtual void attach(std::shared_ptr<Node>, string) = 0;
-    virtual void setMessage(ControlAffineSystem *) = 0;
+    virtual void setMessage(System *) = 0;
     void setFrameId(string s) { frameId = s; }
 };
 
