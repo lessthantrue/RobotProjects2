@@ -17,17 +17,33 @@ find_package(ament_cmake REQUIRED)
 find_package(Eigen3 3.3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(tf2_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
+find_package(pcl_conversions REQUIRED)
+find_package(rcl_interfaces REQUIRED)
+find_package(rcutils REQUIRED)
+find_package(PCL REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system)
 
 set(dependencies 
   rclcpp
   Eigen3
   geometry_msgs
+  std_msgs
+  sensor_msgs
   tf2
   tf2_ros
+  tf2_geometry_msgs
+  tf2_msgs
   visualization_msgs
+  pcl_conversions
+  rcl_interfaces
+  rcutils
 )
 
 file(GLOB all_srcs src/*.cpp src/*/*.cpp)
@@ -38,12 +54,18 @@ add_library(${SIMULATION_LIB} SHARED
 
 target_include_directories(${SIMULATION_LIB} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include>
+  ${PCL_INCLUDE_DIRS})
+
+link_directories(${PCL_INCLUDE_DIRS})
 
 ament_target_dependencies(${SIMULATION_LIB} ${dependencies})
 
 add_executable(simple_sim src/executables/simple_sim.cpp)
-target_link_libraries(simple_sim ${SIMULATION_LIB})
+target_link_libraries(simple_sim 
+  ${SIMULATION_LIB}
+  ${BOOST_SYSTEM_LIBRARY}
+  ${PCL_LIBRARIES})
 
 ament_target_dependencies(simple_sim ${dependencies})
 ament_export_dependencies(${dependencies})

@@ -6,12 +6,15 @@
 
 using visualization_msgs::msg::Marker;
 using std_msgs::msg::ColorRGBA;
+using geometry_msgs::msg::Point;
 using std::string;
 
 class SensablePoint {
 private:
-    Marker marker_base;
     static int marker_count;
+protected:
+    Marker marker_base;
+    ColorRGBA color;
 public:
     SensablePoint(float, float, string);
     float x();
@@ -19,6 +22,7 @@ public:
     float y();
     void setY(float);
     Marker toMarker();
+    Point toPoint(string destFrame);
 };
 
 #endif

@@ -19,34 +19,24 @@ class SimObjectConfiguration {
 public:
     string name;
     string frameId;
-    string parentFrame;
     int loopHz;
 };
 
 class SimObject { 
 private:
-    Duration period;
+    Rate freq;
     TimerBase::SharedPtr timer;
-    Eigen::VectorXd lastCtrl;
-    geometry_msgs::msg::TransformStamped tfBase;
-    void controlCallback(const Float64MultiArray::SharedPtr msg);
 protected:
-    string name;
-    IPublisher * visualizer;
-    ControlAffineSystem * dynamics;
+    string name, frameId;
     int timeSteps;
-    Subscription<Float64MultiArray>::SharedPtr controlSub;
-    std::shared_ptr<tf2_ros::TransformListener> tfListener;
-    std::shared_ptr<tf2_ros::TransformBroadcaster> tfPublisher;
-    virtual void timerCallback();
-    void visualize();
-    void publishTransform();
+    std::shared_ptr<tf2_ros::Buffer> tfBuffer;
+    virtual void timerCallback() = 0;
+    virtual void visualize() = 0;
 public:
-    SimObject(string name, IPublisher *, ControlAffineSystem *, Duration);
-    SimObject(SimObjectConfiguration, IPublisher *, ControlAffineSystem *);
-    void stepTime(double dt);
-    void attach(std::shared_ptr<Node> n);
-    void attachTf(std::shared_ptr<tf2_ros::Buffer>, Node::SharedPtr);
+    typedef std::shared_ptr<SimObject> SharedPtr;
+    SimObject(SimObjectConfiguration);
+    virtual void attach(std::shared_ptr<Node> n);
+    virtual void attachTf(std::shared_ptr<tf2_ros::Buffer>, Node::SharedPtr);
 };
 
 #endif
