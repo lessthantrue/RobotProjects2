@@ -1,0 +1,27 @@
+--- # proposed simulation yaml file schema
+
+object :
+  class : class_name # DynamicSimObject, IMU, whatever
+  name : "bob" # object name
+  frame_id : "base_link" # frame attached to the object
+  parent_frame : "map" # frame that the object exists in
+  # additional object-level configuration determined by object class
+  visualizer : # optional configuration for a visualizer
+    class : pose_visualizer # visualizer type - pose, marker, polygon
+    # additional configuration as necessary
+  dynamics : # only for DynamicSimObjects
+    class : simple_se2 
+    # additional configuration as necessary
+  
+# additional objects go here
+  
+world:
+  points:
+    - class: sensable_point # if we add more, more will go here
+      position: 
+        x: 2
+        y: 3
+      # additional configuration as necessary
+    - # additional points
+    
+# that would be all for now
