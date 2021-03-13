@@ -4,7 +4,6 @@
 #include <eigen3/Eigen/Eigen>
 #include <map>
 #include <string>
-#include <geometry_msgs/msg/transform.hpp>
 #include "systems/system.h"
 
 // represents a dynamic system of the form:

@@ -5,6 +5,7 @@
 #include "simulation.h"
 #include "sensors/pointSensor.h"
 #include "sensablePoint.h"
+#include "sensors/imuSensor.h"
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <memory>
 #include <chrono>
@@ -42,13 +43,20 @@ int main(int argc, char ** argv)
   sensConf.name = "pt_camera";
   sensConf.loopHz = 10; // readings per second
 
+  SimObjectConfiguration imuConf;
+  imuConf.frameId = "base_link";
+  imuConf.name = "imu";
+  imuConf.loopHz = 50;
+
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);
   std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
   sensor->attachWorld(sim->sensableWorld());
   SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
+  SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
   sim->addObject(obj);
   sim->addObject(sensor);
+  sim->addObject(imu);
 
   for(;;){
     sim->timeStep();

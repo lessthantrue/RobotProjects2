@@ -31,7 +31,7 @@ protected:
     int timeSteps;
     std::shared_ptr<tf2_ros::Buffer> tfBuffer;
     virtual void timerCallback() = 0;
-    virtual void visualize() = 0;
+    virtual void visualize(){}
 public:
     typedef std::shared_ptr<SimObject> SharedPtr;
     SimObject(SimObjectConfiguration);
