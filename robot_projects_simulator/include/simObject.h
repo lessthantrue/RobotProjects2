@@ -18,6 +18,7 @@ using std::string;
 class SimObjectConfiguration {
 public:
     string name;
+    string parentFrameId;
     string frameId;
     int loopHz;
 };
@@ -27,7 +28,8 @@ private:
     Rate freq;
     TimerBase::SharedPtr timer;
 protected:
-    string name, frameId;
+    rclcpp::Clock::SharedPtr clock;
+    string name, frameId, parentFrameId;
     int timeSteps;
     std::shared_ptr<tf2_ros::Buffer> tfBuffer;
     virtual void timerCallback() = 0;

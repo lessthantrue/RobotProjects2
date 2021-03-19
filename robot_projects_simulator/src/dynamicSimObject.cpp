@@ -7,9 +7,9 @@ using namespace Eigen; // too lazy to do it the other way
 DynamicSimObject::DynamicSimObject(DynamicSimObjectConfiguration & conf, IPublisher * viz, ControlAffineSystem * dyn)
     : SimObject(conf), visualizer(viz), dynamics(dyn) {
     lastCtrl = Eigen::VectorXd::Zero(dynamics->dimU());
-    visualizer->setFrameId(conf.parentFrame);
-    tfBase.child_frame_id = conf.frameId;
-    tfBase.header.frame_id = conf.parentFrame;
+    visualizer->setFrameId(parentFrameId);
+    tfBase.child_frame_id = frameId;
+    tfBase.header.frame_id = parentFrameId;
 }   
 
 void DynamicSimObject::controlCallback(const Float64MultiArray::SharedPtr msg){
@@ -27,6 +27,7 @@ void DynamicSimObject::visualize(){
 
 void DynamicSimObject::publishTransform(){
     tfBase.transform = dynamics->getTransform();
+    tfBase.header.stamp = clock->now();
     tfPublisher->sendTransform(tfBase);
 }
 

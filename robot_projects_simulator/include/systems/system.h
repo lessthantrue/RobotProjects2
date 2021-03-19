@@ -28,6 +28,18 @@ protected:
      * to the indices containing them in state
      **/
     map<string, int> semanticStateMap;
+
+    /**
+     * True if the system's inputs have bounds
+     **/
+    bool hasInputBounds;
+
+    /** 
+     * High and low limits on the system's inputs
+     **/
+    VectorXd uLimitHigh; 
+    VectorXd uLimitLow;
+    
 public:
     int dimX();
     int dimU();

@@ -16,10 +16,8 @@ using namespace std_msgs::msg;
 using namespace rclcpp;
 using std::string;
 
-class DynamicSimObjectConfiguration : public SimObjectConfiguration {
-public:
-    string parentFrame;
-};
+// empty for now due to small refactor
+class DynamicSimObjectConfiguration : public SimObjectConfiguration { };
 
 class DynamicSimObject : public SimObject { 
 private:

@@ -12,6 +12,8 @@ SimpleSE2::SimpleSE2(double x, double y, double h)
     semanticStateMap["h"] = 2;
     _dimX = 3;
     _dimU = 2;
+    uLimitHigh = Eigen::Vector2d(1, 1);
+    uLimitLow = Eigen::Vector2d(-1, -1);
 }
 
 Eigen::MatrixXd SimpleSE2::g() {

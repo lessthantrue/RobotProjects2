@@ -4,11 +4,13 @@
 #include "systems/simpleSE2.h"
 #include "simulation.h"
 #include "sensors/pointSensor.h"
+#include "sensors/rangeLimitedPointSensor.h"
 #include "sensablePoint.h"
 #include "sensors/imuSensor.h"
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <memory>
 #include <chrono>
+#include <iostream>
 
 using namespace std::chrono_literals;
 using geometry_msgs::msg::PoseStamped;
@@ -31,17 +33,18 @@ int main(int argc, char ** argv)
   DynamicSimObjectConfiguration conf;
   conf.name = "diff_drive";
   conf.frameId = "base_link";
-  conf.parentFrame = "map";
+  conf.parentFrameId = "map";
   conf.loopHz = 20;
 
-  PointSensorConfiguration sensConf;
+  RangeLimitedPointSensorConfiguration sensConf;
   sensConf.frameId = "camera";
-  sensConf.parentFrame = "base_link";
-  sensConf.fov = M_PI_2;
-  sensConf.minRange = 1;
-  sensConf.maxRange = 5;
-  sensConf.name = "pt_camera";
-  sensConf.loopHz = 10; // readings per second
+  sensConf.parentFrameId = "base_link";
+  std::cout << "Sensor parent frame FOR REAL: " << sensConf.parentFrameId << std::endl;
+  sensConf.name = "pt_sensor";
+  sensConf.fov = M_PI_2 / 2;
+  sensConf.minRange = 0.5;
+  sensConf.maxRange = 10;
+  sensConf.loopHz = 10;
 
   SimObjectConfiguration imuConf;
   imuConf.frameId = "base_link";
@@ -50,13 +53,18 @@ int main(int argc, char ** argv)
 
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);
-  std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
+
+  std::cout << "Sensor parent frame FOR REAL: " << sensConf.parentFrameId << std::endl;
+
+  std::shared_ptr<PointSensor> sensor = std::make_shared<RangeLimitedPointSensor>(sensConf);
   sensor->attachWorld(sim->sensableWorld());
   SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
   SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
   sim->addObject(obj);
+  std::cout << "Sensor parent frame FOR REAL: " << sensor->getParentFrameId() << std::endl;
   sim->addObject(sensor);
   sim->addObject(imu);
+
 
   for(;;){
     sim->timeStep();
