@@ -4,6 +4,7 @@
 #include "systems/simpleSE2.h"
 #include "simulation.h"
 #include "sensors/pointSensor.h"
+#include "sensors/poseSensor.h"
 #include "sensors/rangeLimitedPointSensor.h"
 #include "sensablePoint.h"
 #include "sensors/imuSensor.h"
@@ -39,12 +40,16 @@ int main(int argc, char ** argv)
   RangeLimitedPointSensorConfiguration sensConf;
   sensConf.frameId = "camera";
   sensConf.parentFrameId = "base_link";
-  std::cout << "Sensor parent frame FOR REAL: " << sensConf.parentFrameId << std::endl;
   sensConf.name = "pt_sensor";
   sensConf.fov = M_PI_2 / 2;
   sensConf.minRange = 0.5;
   sensConf.maxRange = 10;
   sensConf.loopHz = 10;
+
+  SimObjectConfiguration poseConf;
+  poseConf.frameId = "base_link";
+  poseConf.name = "pose_sensor";
+  poseConf.loopHz = 1;
 
   SimObjectConfiguration imuConf;
   imuConf.frameId = "base_link";
@@ -54,17 +59,16 @@ int main(int argc, char ** argv)
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);
 
-  std::cout << "Sensor parent frame FOR REAL: " << sensConf.parentFrameId << std::endl;
 
   std::shared_ptr<PointSensor> sensor = std::make_shared<RangeLimitedPointSensor>(sensConf);
   sensor->attachWorld(sim->sensableWorld());
   SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
   SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
+  SimObject::SharedPtr pose = std::make_shared<PoseSensor>(poseConf);
   sim->addObject(obj);
-  std::cout << "Sensor parent frame FOR REAL: " << sensor->getParentFrameId() << std::endl;
   sim->addObject(sensor);
   sim->addObject(imu);
-
+  sim->addObject(pose);
 
   for(;;){
     sim->timeStep();
