@@ -37,14 +37,12 @@ int main(int argc, char ** argv)
   conf.parentFrameId = "map";
   conf.loopHz = 20;
 
-  RangeLimitedPointSensorConfiguration sensConf;
+  PointSensorConfiguration sensConf;
   sensConf.frameId = "camera";
   sensConf.parentFrameId = "base_link";
   sensConf.name = "pt_sensor";
-  sensConf.fov = M_PI_2 / 2;
-  sensConf.minRange = 0.5;
-  sensConf.maxRange = 10;
   sensConf.loopHz = 10;
+  sensConf.covariance << 0.05, 0, 0, 0.05;
 
   SimObjectConfiguration poseConf;
   poseConf.frameId = "base_link";
@@ -59,8 +57,7 @@ int main(int argc, char ** argv)
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);
 
-
-  std::shared_ptr<PointSensor> sensor = std::make_shared<RangeLimitedPointSensor>(sensConf);
+  std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
   sensor->attachWorld(sim->sensableWorld());
   SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
   SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);

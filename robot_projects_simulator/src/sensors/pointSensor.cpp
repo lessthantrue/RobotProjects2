@@ -3,6 +3,8 @@
 #include <geometry_msgs/msg/point32.hpp>
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include <iostream>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Dense>
 
 using geometry_msgs::msg::Point32;
 using geometry_msgs::msg::Point;
@@ -10,8 +12,8 @@ using geometry_msgs::msg::PointStamped;
 using sensor_msgs::msg::PointCloud2;
 using geometry_msgs::msg::TransformStamped;
 
-PointSensor::PointSensor(SimObjectConfiguration conf)
-    : SimObject(conf) { }
+PointSensor::PointSensor(PointSensorConfiguration conf)
+    : SimObject(conf), noise(Eigen::Vector2f::Zero(), conf.covariance) {}
 
 void PointSensor::timerCallback(){
     reading.points.clear();
@@ -43,10 +45,14 @@ void PointSensor::processPoint(std::shared_ptr<SensablePoint> p){
     tf2::doTransform(ptTf1, ptTf2, tf);
 
     Point ptTf = ptTf2.point;
+
+    Eigen::Vector2f noisyPtVec;
+    noisyPtVec << noise.samples(1);
+
     // add point to cloud
     pcl::PointXYZRGB pclpt(p->toMarker().color.r, p->toMarker().color.g, p->toMarker().color.b);
-    pclpt.x = ptTf.x;
-    pclpt.y = ptTf.y;
+    pclpt.x = ptTf.x + noisyPtVec(0);
+    pclpt.y = ptTf.y + noisyPtVec(1);
     pclpt.z = 0;
     reading.points.push_back(pclpt);
 }

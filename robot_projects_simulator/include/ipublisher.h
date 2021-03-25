@@ -8,6 +8,12 @@
 using std::string;
 using namespace rclcpp;
 
+class VisualizerConfiguration {
+public:
+    string topicName;
+    string frameId;
+};
+
 // rename to something like 'IStatePublisher' in the future
 class IPublisher{
 protected:

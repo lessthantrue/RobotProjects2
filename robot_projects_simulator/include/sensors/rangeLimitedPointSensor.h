@@ -18,7 +18,7 @@ using geometry_msgs::msg::Transform;
 using sensor_msgs::msg::PointCloud2;
 using namespace rclcpp;
 
-class RangeLimitedPointSensorConfiguration : public SimObjectConfiguration {
+class RangeLimitedPointSensorConfiguration : public PointSensorConfiguration {
 public:
     float fov, minRange, maxRange;
 };

@@ -9,6 +9,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include <geometry_msgs/msg/transform_stamped.hpp>
+#include "ipublisher.h"
 
 using std::placeholders::_1;
 using namespace std_msgs::msg;
@@ -32,8 +33,11 @@ protected:
     string name, frameId, parentFrameId;
     int timeSteps;
     std::shared_ptr<tf2_ros::Buffer> tfBuffer;
+    std::shared_ptr<IPublisher> visualizer;
     virtual void timerCallback() = 0;
-    virtual void visualize(){}
+    virtual void visualize(){
+        visualizer->publish();
+    }
 public:
     typedef std::shared_ptr<SimObject> SharedPtr;
     SimObject(SimObjectConfiguration);
