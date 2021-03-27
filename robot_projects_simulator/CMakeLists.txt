@@ -30,6 +30,8 @@ find_package(rcutils REQUIRED)
 find_package(PCL REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)
 
+set(SIMULATION_LIB robot_projects_simulator)
+
 set(dependencies 
   rclcpp
   Eigen3
@@ -47,43 +49,62 @@ set(dependencies
 )
 
 file(GLOB all_srcs src/*.cpp src/*/*.cpp)
+file(GLOB all_headers include/*.h include/*/*.h)
 
-set(SIMULATION_LIB robot_projects_simulator)
 add_library(${SIMULATION_LIB} SHARED
-  ${all_srcs})
+  ${all_srcs} ${all_headers})
 
 target_include_directories(${SIMULATION_LIB} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
   ${PCL_INCLUDE_DIRS})
 
-link_directories(${PCL_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/systems)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/sensors)
 
+link_directories(${PCL_INCLUDE_DIRS})
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/systems)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/sensors)
+
+# target_link_libraries(${SIMULATION_LIB} ${dependencies})
 ament_target_dependencies(${SIMULATION_LIB} ${dependencies})
 
-add_executable(simple_sim src/executables/simple_sim.cpp)
-target_link_libraries(simple_sim 
+add_executable(ekf_sim_world executables/ekf_sim_world.cpp)
+add_executable(test_sim_world executables/test_sim_world.cpp)
+
+target_link_libraries(ekf_sim_world 
+  ${SIMULATION_LIB}
+  ${BOOST_SYSTEM_LIBRARY}
+  ${PCL_LIBRARIES})
+target_link_libraries(test_sim_world 
   ${SIMULATION_LIB}
   ${BOOST_SYSTEM_LIBRARY}
   ${PCL_LIBRARIES})
 
-ament_target_dependencies(simple_sim ${dependencies})
+target_include_directories(ekf_sim_world PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+ament_target_dependencies(ekf_sim_world ${dependencies})
+ament_target_dependencies(test_sim_world ${dependencies})
 ament_export_dependencies(${dependencies})
 
-install(TARGETS ${SIMULATION_LIB} simple_sim
-  EXPORT export_${PENDULUM_CONTROLLER_LIB}
+install(TARGETS ${SIMULATION_LIB} ekf_sim_world
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME})
+install(TARGETS ${SIMULATION_LIB} test_sim_world
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+# if(BUILD_TESTING)
+#   find_package(ament_lint_auto REQUIRED)
+#   # the following line skips the linter which checks for copyrights
+#   # uncomment the line when a copyright and license is not present in all source files
+#   #set(ament_cmake_copyright_FOUND TRUE)
+#   # the following line skips cpplint (only works in a git repo)
+#   # uncomment the line when this package is not in a git repo
+#   #set(ament_cmake_cpplint_FOUND TRUE)
+#   ament_lint_auto_find_test_dependencies()
+# endif()
 
 ament_package()
