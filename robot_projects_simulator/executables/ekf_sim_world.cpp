@@ -40,10 +40,14 @@ int main(int argc, char ** argv)
   sensConf.loopHz = 10;
   sensConf.covariance << 0.05, 0, 0, 0.05;
 
-  SimObjectConfiguration imuConf;
+  ImuSensorConfiguration imuConf;
   imuConf.frameId = "base_link";
   imuConf.name = "imu";
   imuConf.loopHz = 50;
+  imuConf.covariance << 0.1 * M_PI, 0, 0, 0,
+                        0, 0, 0, 0, 
+                        0, 0, 0, 0,
+                        0, 0, 0, 0;
 
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);

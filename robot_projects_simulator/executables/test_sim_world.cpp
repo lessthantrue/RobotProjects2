@@ -49,22 +49,15 @@ int main(int argc, char ** argv)
   poseConf.name = "pose_sensor";
   poseConf.loopHz = 1;
 
-  SimObjectConfiguration imuConf;
-  imuConf.frameId = "base_link";
-  imuConf.name = "imu";
-  imuConf.loopHz = 50;
-
   PoseVisualizer viz;
   SimpleSE2 dyn(0, 0, 0);
 
   std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
   sensor->attachWorld(sim->sensableWorld());
   SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
-  SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
   SimObject::SharedPtr pose = std::make_shared<PoseSensor>(poseConf);
   sim->addObject(obj);
   sim->addObject(sensor);
-  sim->addObject(imu);
   sim->addObject(pose);
 
   for(;;){
