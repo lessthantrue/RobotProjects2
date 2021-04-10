@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <geometry_msgs/msg/transform.hpp>
+#include "eigenmvn.h"
 
 using std::string;
 using std::map;
@@ -24,6 +25,11 @@ protected:
     virtual VectorXd dxdt(VectorXd u) = 0;
 
     /**
+     * External noise or disturbance
+     **/
+    virtual VectorXd noise(VectorXd u);
+
+    /**
      * A map relating individual state variable names
      * to the indices containing them in state
      **/
@@ -40,6 +46,11 @@ protected:
     VectorXd uLimitHigh; 
     VectorXd uLimitLow;
     
+    /**
+     * noise generator for the system
+     **/
+    Eigen::MultivariateNormal<double> noiseGenerator;
+
 public:
     int dimX();
     int dimU();
@@ -68,6 +79,11 @@ public:
      * Returns a transform from the parent frame to the system frame
      **/
     virtual Transform getTransform() = 0;
+
+    /** 
+     * set the process noise covariance
+     **/
+    void setNoiseCovariance(Eigen::MatrixXd cov);
 };
 
 #endif

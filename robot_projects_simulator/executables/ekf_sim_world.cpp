@@ -19,50 +19,57 @@ using std::vector;
 
 int main(int argc, char ** argv)
 {
-  rclcpp::init(argc, argv);
+    rclcpp::init(argc, argv);
 
-  std::shared_ptr<Simulation> sim = std::make_shared<Simulation>(rclcpp::Duration(33 * 1000 * 1000));
+    std::shared_ptr<Simulation> sim = std::make_shared<Simulation>(rclcpp::Duration(33 * 1000 * 1000));
 
-  vector<std::shared_ptr<SensablePoint>> points;
-  points.push_back(std::make_shared<SensablePoint>(3, -2, "map"));
-  sim->sensableWorld()->addPoints(points);
+    vector<std::shared_ptr<SensablePoint>> points;
+    points.push_back(std::make_shared<SensablePoint>(3, -2, "map"));
+    sim->sensableWorld()->addPoints(points);
 
-  DynamicSimObjectConfiguration conf;
-  conf.name = "diff_drive";
-  conf.frameId = "base_link";
-  conf.parentFrameId = "map";
-  conf.loopHz = 20;
+    DynamicSimObjectConfiguration conf;
+    conf.name = "diff_drive";
+    conf.frameId = "base_link";
+    conf.parentFrameId = "map";
+    conf.loopHz = 20;
 
-  PointSensorConfiguration sensConf;
-  sensConf.frameId = "camera";
-  sensConf.parentFrameId = "base_link";
-  sensConf.name = "pt_sensor";
-  sensConf.loopHz = 10;
-  sensConf.covariance << 0.05, 0, 0, 0.05;
+    PointSensorConfiguration sensConf;
+    sensConf.frameId = "camera";
+    sensConf.parentFrameId = "base_link";
+    sensConf.name = "pt_sensor";
+    sensConf.loopHz = 10;
+    sensConf.covariance << 0.05, 0, 0, 0.05;
 
-  ImuSensorConfiguration imuConf;
-  imuConf.frameId = "base_link";
-  imuConf.name = "imu";
-  imuConf.loopHz = 50;
-  imuConf.covariance << 0.1 * M_PI, 0, 0, 0,
-                        0, 0, 0, 0, 
-                        0, 0, 0, 0,
-                        0, 0, 0, 0;
+    ImuSensorConfiguration imuConf;
+    imuConf.frameId = "base_link";
+    imuConf.name = "imu";
+    imuConf.loopHz = 50;
+    imuConf.covariance << 
+        0.1 * M_PI, 0, 0, 0,
+        0, 0, 0, 0, 
+        0, 0, 0, 0,
+        0, 0, 0, 0;
 
-  PoseVisualizer viz;
-  SimpleSE2 dyn(0, 0, 0);
+    PoseVisualizer viz;
+    SimpleSE2 dyn(0, 0, 0);
+    Eigen::MatrixXd cov(3, 3);
+    cov << 
+        0.01, 0, 0,
+        0, 0.01, 0,
+        0, 0, 0.1;
+    dyn.setNoiseCovariance(cov);
 
-  std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
-  sensor->attachWorld(sim->sensableWorld());
-  SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
-  SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
-  sim->addObject(obj);
-  sim->addObject(sensor);
-  sim->addObject(imu);
+    std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
+    sensor->attachWorld(sim->sensableWorld());
+    SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
+    SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
+    sim->addObject(obj);
+    sim->addObject(sensor);
+    sim->addObject(imu);
 
-  for(;;){
-    sim->timeStep();
-  }
+    for(;;){
+        sim->timeStep();
+    }
 
-  return 0;
+    return 0;
 }

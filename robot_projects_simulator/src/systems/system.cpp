@@ -1,6 +1,10 @@
 #include "systems/system.h"
 
-System::System(Eigen::VectorXd s0){
+VectorXd System::noise(VectorXd u){
+    return noiseGenerator.samples(1);
+}
+
+System::System(Eigen::VectorXd s0) : noiseGenerator(Eigen::VectorXd::Zero(_dimX), Eigen::MatrixXd::Zero(_dimX, _dimX)){
     this->state = s0;
 }
 
@@ -11,7 +15,7 @@ void System::step(Eigen::VectorXd u, double dt){
     }
 
     // simple euler method for now
-    this->state += this->dxdt(u) * dt;
+    this->state += (this->dxdt(u) + this->noise(u)) * dt;
 }
 
 int System::dimX(){
@@ -24,4 +28,8 @@ int System::dimU(){
 
 double System::getValueByName(string name){
     return state(semanticStateMap[name]);
+}
+
+void System::setNoiseCovariance(Eigen::MatrixXd cov){
+    this->noiseGenerator.setCovar(cov);
 }
