@@ -3,9 +3,8 @@
 #include "visualizers/poseVisualizer.h"
 #include "systems/simpleSE2.h"
 #include "simulation.h"
-#include "sensors/pointSensor.h"
+#include "sensors/pointCloud2Sensor.h"
 #include "sensors/poseSensor.h"
-#include "sensors/rangeLimitedPointSensor.h"
 #include "sensablePoint.h"
 #include "sensors/imuSensor.h"
 #include <geometry_msgs/msg/pose_stamped.hpp>
@@ -33,7 +32,7 @@ int main(int argc, char ** argv)
     conf.parentFrameId = "map";
     conf.loopHz = 20;
 
-    PointSensorConfiguration sensConf;
+    PointSensorBaseConfiguration sensConf;
     sensConf.frameId = "camera";
     sensConf.parentFrameId = "base_link";
     sensConf.name = "pt_sensor";
@@ -59,7 +58,7 @@ int main(int argc, char ** argv)
         0, 0, 0.1;
     dyn.setNoiseCovariance(cov);
 
-    std::shared_ptr<PointSensor> sensor = std::make_shared<PointSensor>(sensConf);
+    std::shared_ptr<PointCloud2Sensor> sensor = std::make_shared<PointCloud2Sensor>(sensConf);
     sensor->attachWorld(sim->sensableWorld());
     SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
     SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);

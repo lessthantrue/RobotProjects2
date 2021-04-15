@@ -1,7 +1,7 @@
 #ifndef RANGE_LIMITED_POINT_SENSOR_H
 #define RANGE_LIMITED_POINT_SENSOR_H
 
-#include "sensors/pointSensor.h"
+#include "sensors/pointSensorBase.h"
 #include "sensablePoint.h"
 #include "sensableWorld.h"
 #include <geometry_msgs/msg/polygon_stamped.hpp>
@@ -18,17 +18,18 @@ using geometry_msgs::msg::Transform;
 using sensor_msgs::msg::PointCloud2;
 using namespace rclcpp;
 
-class RangeLimitedPointSensorConfiguration : public PointSensorConfiguration {
+class RangeLimitedPointSensorConfiguration : public PointSensorBaseConfiguration {
 public:
     float fov, minRange, maxRange;
 };
 
-class RangeLimitedPointSensor : public PointSensor {
+class RangeLimitedPointSensor : public PointSensorBase<PointCloud2> {
 protected:
+    pcl::PointCloud<pcl::PointXYZRGB> reading;
     PolygonStamped rangeVisualizer;
     float fov, minRange, maxRange;
     Publisher<PolygonStamped>::SharedPtr rangeVisualizerPublisher;
-    virtual void processPoint(std::shared_ptr<SensablePoint>);
+    virtual PointCloud2 aggregatePoints();
     virtual void visualize() override;
 public:
     RangeLimitedPointSensor(RangeLimitedPointSensorConfiguration &);

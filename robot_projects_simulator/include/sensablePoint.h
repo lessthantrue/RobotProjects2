@@ -21,6 +21,7 @@ public:
     void setX(float);
     float y();
     void setY(float);
+    ColorRGBA getColor() { return color; }
     Marker toMarker();
     Point toPoint(string destFrame);
 };
