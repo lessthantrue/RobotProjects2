@@ -3,7 +3,7 @@ from sensor_msgs.msg import Imu, PointCloud2
 from rclpy.node import Node
 from transforms3d.euler import quat2euler
 import pcl_msgs
-
+from robot_projects_ekf_localization import point_cloud2
 
 class EkfNodeWrapper(Node):
     def __init__(self):
@@ -14,7 +14,7 @@ class EkfNodeWrapper(Node):
             self.imu_callback,
             10
         )
-        self.point_sun = self.create_subscription(
+        self.point_sub = self.create_subscription(
             PointCloud2,
             "/pt_sensor/reading",
             self.point_callback,
@@ -22,16 +22,16 @@ class EkfNodeWrapper(Node):
         )
 
     def imu_callback(self, msg):
-        o_quat = [
+        quat = [
             msg.orientation.w,
             msg.orientation.x,
             msg.orientation.y,
             msg.orientation.z
         ]
-        _, _, yaw = quat2euler(o_quat)
+        _, _, yaw = quat2euler(quat)
 
     def point_callback(self, msg):
-        pass
+        points = point_cloud2.read_points_list(msg)
 
 def main(args=None):
     rclpy.init(args=args)
