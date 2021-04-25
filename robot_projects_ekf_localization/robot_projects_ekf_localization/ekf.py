@@ -14,23 +14,25 @@ class ExtendedKalmanFilter :
     def setBeaconPosition(self, posn):
         self.beaconPosition = posn
 
-    def toPoseWithCovariance():
+    def toPoseWithCovariance(self):
         pwc = PoseWithCovariance()
         pwc.pose.position.x = self.x[0]
-        pwc.pose.position.y = self.y[0]
-        pwc.pose.position.z = 0
+        pwc.pose.position.y = self.x[0]
+        # pwc.pose.position.z = float(0)
 
         # fill covariance
         # I should make a function for this stuff someday
-        pwc.covariance[0] = self.cov[0][0]
-        pwc.covariance[1] = self.cov[0][1]
-        pwc.covariance[5] = self.cov[0][2]
-        pwc.covariance[6] = self.cov[1][0]
-        pwc.covariance[7] = self.cov[1][1]
-        pwc.covariance[11] = self.cov[1][2]
-        pwc.covariance[30] = self.cov[2][0]
-        pwc.covariance[31] = self.cov[2][1]
-        pwc.covariance[35] = self.cov[2][2]
+        pwc.covariance[0] = self.P[0][0]
+        pwc.covariance[1] = self.P[0][1]
+        pwc.covariance[5] = self.P[0][2]
+        pwc.covariance[6] = self.P[1][0]
+        pwc.covariance[7] = self.P[1][1]
+        pwc.covariance[11] = self.P[1][2]
+        pwc.covariance[30] = self.P[2][0]
+        pwc.covariance[31] = self.P[2][1]
+        pwc.covariance[35] = self.P[2][2]
+
+        return pwc
 
     # control is [linear velocity, angular velocity]
     def f(self, control, dt):
@@ -88,7 +90,7 @@ class ExtendedKalmanFilter :
     def predict(self, control, processCovariance, dt):
         self.x = self.f(control, dt)
         F = self.F(control, dt)
-        self.p = F @ self.P @ F + processCovariance
+        self.P = F @ self.P @ F.T + processCovariance
 
     def update(self, sensed, sensorCov):
         H = self.H()

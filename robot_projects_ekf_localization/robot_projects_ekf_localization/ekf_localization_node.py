@@ -7,6 +7,9 @@ import pcl_msgs
 from robot_projects_ekf_localization import point_cloud2, ekf
 import numpy as np
 
+assumedActCov = np.eye(3)
+assumedSenseCov = np.eye(3)
+
 class EkfNodeWrapper(Node):
     def __init__(self):
         super().__init__("ekf_localization")
@@ -29,8 +32,8 @@ class EkfNodeWrapper(Node):
         )
         self.filter = ekf.ExtendedKalmanFilter()
         self.filter.setBeaconPosition(np.array([3, -2]))
-        self.filter.setInitialPose(np.array([0, 0, 0]))
-        self.filter.setInitialCovariance(np.zeros((3, 3)))
+        self.filter.setInitialPose(np.array([0, 0, 0], dtype="float64"))
+        self.filter.setInitialCovariance(np.zeros((3, 3), dtype="float64"))
         self.lastCtrlTime = self.get_clock().now()
 
         self.yawReading = 0
@@ -62,14 +65,14 @@ class EkfNodeWrapper(Node):
         ctrlArray = np.array([msg.data[0], msg.data[1]])
         newTime = self.get_clock().now()
         timeDif = (newTime - self.lastCtrlTime).nanoseconds / 1000000000
-        # self.filter.predict(ctrlArray, np.eye(3), timeDif)
+        self.filter.predict(ctrlArray, assumedActCov, timeDif)
         self.lastCtrlTime = newTime
 
     def publish_estimate(self):
         est = PoseWithCovarianceStamped()
         est.header.frame_id = "map"
         est.header.stamp = self.get_clock().now().to_msg()
-        # est.pose = self.filter.toPoseWithCovariance()
+        est.pose = self.filter.toPoseWithCovariance()
         self.est_pub.publish(est)
 
 def main(args=None):
