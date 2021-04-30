@@ -4,6 +4,7 @@
 #include "ipublisher.h"
 #include "simObject.h"
 #include "systems/system.h"
+#include "IControl.h"
 #include <std_msgs/msg/float64_multi_array.hpp>
 #include <eigen3/Eigen/Eigen>
 #include <tf2_ros/buffer.h>
@@ -23,12 +24,11 @@ class DynamicSimObject : public SimObject {
 private:
     Eigen::VectorXd lastCtrl;
     geometry_msgs::msg::TransformStamped tfBase;
-    void controlCallback(const Float64MultiArray::SharedPtr msg);
     void stepTime(double dt);
 protected:
     IPublisher * visualizer;
     System * dynamics;
-    Subscription<Float64MultiArray>::SharedPtr controlSub;
+    std::shared_ptr<IControl> ctrl;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tfPublisher;
     virtual void timerCallback() override;
     virtual void visualize() override;
@@ -37,6 +37,7 @@ public:
     DynamicSimObject(DynamicSimObjectConfiguration &, IPublisher *, ControlAffineSystem *);
     void attach(std::shared_ptr<Node> n) override;
     void attachTf(std::shared_ptr<tf2_ros::Buffer>, Node::SharedPtr) override;
+    void setControl(std::shared_ptr<IControl> ctrl);
 };
 
 #endif

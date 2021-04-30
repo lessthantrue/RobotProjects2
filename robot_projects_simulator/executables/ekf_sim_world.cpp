@@ -58,9 +58,14 @@ int main(int argc, char ** argv)
         0, 0, 0.1;
     dyn.setNoiseCovariance(cov);
 
+    // the next line is extremely dumb and I hate it and I should change it
+    std::shared_ptr<SimpleSE2::CmdVelInterface> input = std::make_shared<SimpleSE2::CmdVelInterface>();
+    input->attach(sim, "/cmd_vel");
+
     std::shared_ptr<PointCloud2Sensor> sensor = std::make_shared<PointCloud2Sensor>(sensConf);
     sensor->attachWorld(sim->sensableWorld());
-    SimObject::SharedPtr obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
+    std::shared_ptr<DynamicSimObject> obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
+    obj->setControl(input);
     SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
     sim->addObject(obj);
     sim->addObject(sensor);

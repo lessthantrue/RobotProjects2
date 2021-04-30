@@ -1,3 +1,6 @@
+#ifndef POSE_VISUALIZER_H
+#define POSE_VISUALIZER_H
+
 #include "../rvizable.h"
 #include <geometry_msgs/msg/pose_stamped.hpp>
 
@@ -12,3 +15,5 @@ protected:
 public:
     void setMessage(System *) override;
 };
+
+#endif

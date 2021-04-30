@@ -12,12 +12,8 @@ DynamicSimObject::DynamicSimObject(DynamicSimObjectConfiguration & conf, IPublis
     tfBase.header.frame_id = parentFrameId;
 }   
 
-void DynamicSimObject::controlCallback(const Float64MultiArray::SharedPtr msg){
-    lastCtrl = Eigen::Map<Eigen::VectorXd>(&msg->data[0], dynamics->dimU());
-}
-
 void DynamicSimObject::stepTime(double dt){
-    dynamics->step(lastCtrl, dt);
+    dynamics->step(ctrl->get(), dt);
 }
 
 void DynamicSimObject::visualize(){
@@ -41,7 +37,6 @@ void DynamicSimObject::timerCallback(){
 
 void DynamicSimObject::attach(std::shared_ptr<Node> n){
     SimObject::attach(n);
-    controlSub = n->create_subscription<Float64MultiArray>(name + "/control", 10, std::bind(&DynamicSimObject::controlCallback, this, _1));
     visualizer->attach(n, name + "/visualizer");
 }
 
@@ -49,4 +44,8 @@ void DynamicSimObject::attachTf(std::shared_ptr<tf2_ros::Buffer> buf, Node::Shar
     SimObject::attachTf(buf, node);
     tfPublisher = std::make_shared<tf2_ros::TransformBroadcaster>(node);
     tfPublisher->sendTransform(tfBase); // just to prevent lookup errors
+}
+
+void DynamicSimObject::setControl(std::shared_ptr<IControl> control){
+    this->ctrl = control;
 }
