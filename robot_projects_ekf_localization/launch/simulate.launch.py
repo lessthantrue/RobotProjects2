@@ -15,7 +15,7 @@ def generate_launch_description():
     ekf_node = Node(
         package="robot_projects_ekf_localization",
         executable="ekf_localization",
-        output={"both": "log"}
+        output={"both": "screen"}
     )
 
     vis_node = Node(

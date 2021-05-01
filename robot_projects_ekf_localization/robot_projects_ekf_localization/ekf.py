@@ -1,5 +1,6 @@
 import numpy as np
 from geometry_msgs.msg import PoseWithCovariance
+from transforms3d.euler import euler2quat
 
 class ExtendedKalmanFilter :
     def __init__(self):
@@ -17,8 +18,14 @@ class ExtendedKalmanFilter :
     def toPoseWithCovariance(self):
         pwc = PoseWithCovariance()
         pwc.pose.position.x = self.x[0]
-        pwc.pose.position.y = self.x[0]
+        pwc.pose.position.y = self.x[1]
         # pwc.pose.position.z = float(0)
+
+        q = euler2quat(0, 0, self.x[2])
+        pwc.pose.orientation.x = q[1]
+        pwc.pose.orientation.y = q[2]
+        pwc.pose.orientation.z = q[3]
+        pwc.pose.orientation.w = q[0]
 
         # fill covariance
         # I should make a function for this stuff someday

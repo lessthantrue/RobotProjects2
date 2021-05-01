@@ -15,7 +15,7 @@ class EkfNodeWrapper(Node):
         super().__init__("ekf_localization")
         self.imu_sub = self.create_subscription(
             Imu,
-            "imu/reading",
+            "/imu/reading",
             self.imu_callback,
             10
         )
@@ -23,6 +23,12 @@ class EkfNodeWrapper(Node):
             PointCloud2,
             "/pt_sensor/reading",
             self.point_callback,
+            10
+        )
+        self.ctrl_sub = self.create_subscription(
+            Twist,
+            "/cmd_vel",
+            self.control_callback,
             10
         )
         self.est_pub = self.create_publisher(
@@ -40,6 +46,11 @@ class EkfNodeWrapper(Node):
         self.pointReading = np.array([3, -2])
 
         self.publish_timer = self.create_timer(0.1, self.publish_estimate)
+
+        self.last_ctrl = np.zeros(2, dtype="float64")
+        self.update_dt = 0.01
+        self.update_cov = assumedActCov * self.update_dt * self.update_dt
+        self.update_timer = self.create_timer(self.update_dt, self.update_estimate)
 
     # msg : sensor_msgs.msg.Imu
     def imu_callback(self, msg):
@@ -59,14 +70,12 @@ class EkfNodeWrapper(Node):
         self.pointReading = points[0]
         # self.filter.update(np.array([self.pointReading[0], self.pointReading[1], self.yawReading]), np.eye(3))
 
-    # now, msg : Float64
     # later, msg : geometry_msgs.msg.Twist
     def control_callback(self, msg):
-        ctrlArray = np.array([msg.data[0], msg.data[1]])
-        newTime = self.get_clock().now()
-        timeDif = (newTime - self.lastCtrlTime).nanoseconds / 1000000000
-        self.filter.predict(ctrlArray, assumedActCov, timeDif)
-        self.lastCtrlTime = newTime
+        self.last_ctrl = np.array([msg.linear.x, msg.angular.z])
+
+    def update_estimate(self):
+        self.filter.predict(self.last_ctrl, self.update_cov, self.update_dt)
 
     def publish_estimate(self):
         est = PoseWithCovarianceStamped()
