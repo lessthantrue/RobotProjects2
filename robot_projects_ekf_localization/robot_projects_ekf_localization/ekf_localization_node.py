@@ -8,7 +8,7 @@ from robot_projects_ekf_localization import point_cloud2, ekf
 import numpy as np
 
 assumedActCov = np.eye(3)
-assumedSenseCov = np.eye(3)
+assumedSenseCov = np.eye(3) * 0.05
 
 class EkfNodeWrapper(Node):
     def __init__(self):
@@ -51,6 +51,7 @@ class EkfNodeWrapper(Node):
         self.update_dt = 0.01
         self.update_cov = assumedActCov * self.update_dt * self.update_dt
         self.update_timer = self.create_timer(self.update_dt, self.update_estimate)
+        self.predict_cov = assumedSenseCov
 
     # msg : sensor_msgs.msg.Imu
     def imu_callback(self, msg):
@@ -62,13 +63,19 @@ class EkfNodeWrapper(Node):
         ]
         _, _, yaw = quat2euler(quat)
         self.yawReading = yaw
-        # self.filter.update(np.array([self.pointReading[0], self.pointReading[1], self.yawReading]), np.eye(3))
+        self.predict_cov[2][2] = msg.orientation_covariance[8]
+        self.update()
 
     # msg : sensor_msgs.msg.PointCloud2
     def point_callback(self, msg):
         points = point_cloud2.read_points_list(msg)
         self.pointReading = points[0]
-        # self.filter.update(np.array([self.pointReading[0], self.pointReading[1], self.yawReading]), np.eye(3))
+        self.update()
+
+    def update(self):
+        z = np.array([self.pointReading[0], self.pointReading[1], self.yawReading])
+        self.get_logger().info("\n" + str(z) + "\n" + str(self.filter.h()) + "\n" + str(z - self.filter.h()))
+        self.filter.update(z, self.predict_cov)
 
     # later, msg : geometry_msgs.msg.Twist
     def control_callback(self, msg):

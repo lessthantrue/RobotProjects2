@@ -1,6 +1,13 @@
 import numpy as np
 from geometry_msgs.msg import PoseWithCovariance
 from transforms3d.euler import euler2quat
+from math import remainder
+
+def rotation(h):
+    return np.array([
+        [np.cos(h), -np.sin(h)],
+        [np.sin(h), np.cos(h)]
+    ])
 
 class ExtendedKalmanFilter :
     def __init__(self):
@@ -62,37 +69,19 @@ class ExtendedKalmanFilter :
     def h(self):
         dif = self.beaconPosition - self.x[0:2]
         h = self.x[2]
-        rot = np.array([
-            [np.cos(h), -np.sin(h)],
-            [np.sin(h), np.cos(h)]
-        ])
-        return rot @ dif
+        return np.concatenate([rotation(-h) @ dif, [remainder(h, np.pi * 2)]])
 
-    # it's a huge mess
-    # g(x) = [ x[0], x[1] ] -> dg/dx(x) = [ [1, 0, 0], [0, 1, 0], ]
-    # h(x) = [R(x), 0; 0, 1]*(b-g(x), x[2])
-    # dh/dx(x)  = H
-    #           = dR/dx(x)*(b-g(x)) + R(x)*d(b-g(x))/dx 
-    #           = dR/dx(x)*(b-g(x)) - R(x)*dg/dx(x)
-    #           = dR/dx(x)*(b-g(x)) - [R(x):0]
-    # dh/dx :: R^(3x3)
-    # dR/dx = [ dR/dx0, dR/dx1, dR/dx2 ] = [ 0, 0, dR/dh ]
     def H(self):
-        # dif = b - g(x)
         dif = self.beaconPosition - self.x[0:2]
         h = self.x[2]
-        # rotation matrix
-        R = np.array([
-            [np.cos(h), -np.sin(h)],
-            [np.sin(h), np.cos(h)]
-        ])
         drotdh = np.array([
-            [-np.sin(h), -np.cos(h)],
-            [np.cos(h), -np.sin(h)]
+            [-np.sin(-h), -np.cos(-h)],
+            [np.cos(-h), -np.sin(-h)]
         ])
-        dRdx = np.array([np.zeros((2, 2)), np.zeros((2, 2)), drotdh])
-        dhdx = np.tensordot(dRdx, dif) - np.concatenate(R, np.zeros(2))
-        return np.block([[dhdx], [np.zeros((2, 1)), 1]]) # I hope this works
+        return np.block([
+            [-rotation(-h), np.reshape(-(drotdh @ dif), (2, 1))],
+            [0, 0, 1]
+        ])
 
     def predict(self, control, processCovariance, dt):
         self.x = self.f(control, dt)
@@ -102,6 +91,10 @@ class ExtendedKalmanFilter :
     def update(self, sensed, sensorCov):
         H = self.H()
         y = sensed - self.h()
-        K = self.P @ H.T @ np.linalg.inv(H @ self.P @ H.T + sensorCov)
-        self.x += K @ y
-        self.P = (np.eye(3) - K @ H) @ self.P
+
+        try:
+            K = self.P @ H.T @ np.linalg.inv(H @ self.P @ H.T + sensorCov)
+            self.x += K @ y
+            self.P = (np.eye(3) - K @ H) @ self.P
+        except Exception:
+            pass

@@ -22,7 +22,7 @@ def generate_launch_description():
         package="rviz2",
         executable="rviz2",
         arguments=["-d", os.path.join(get_package_share_directory("robot_projects_ekf_localization"), "config", "ekf_sim_world.rviz")],
-        output={"both": "log"}
+        output={"both": "screen"}
     )
 
     test_act_node = Node(
