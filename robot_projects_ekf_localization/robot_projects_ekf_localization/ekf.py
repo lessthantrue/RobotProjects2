@@ -88,8 +88,12 @@ class ExtendedKalmanFilter :
         F = self.F(control, dt)
         self.P = F @ self.P @ F.T + processCovariance
 
-    def update(self, sensed, sensorCov):
+    def update(self, sensed, sensorCov, ignoreIndices=[]):
         H = self.H()
+
+        for i in ignoreIndices:
+            H[:,i] = np.zeros(len(sensed))
+            
         y = sensed - self.h()
 
         try:

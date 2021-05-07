@@ -30,13 +30,13 @@ int main(int argc, char ** argv)
     conf.name = "diff_drive";
     conf.frameId = "base_link";
     conf.parentFrameId = "map";
-    conf.loopHz = 20;
+    conf.loopHz = 50;
 
     PointSensorBaseConfiguration sensConf;
     sensConf.frameId = "camera";
     sensConf.parentFrameId = "base_link";
     sensConf.name = "pt_sensor";
-    sensConf.loopHz = 10;
+    sensConf.loopHz = 20;
     sensConf.covariance << 0.05, 0, 0, 0.05;
 
     ImuSensorConfiguration imuConf;

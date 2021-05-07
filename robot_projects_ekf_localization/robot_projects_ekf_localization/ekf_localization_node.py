@@ -49,9 +49,9 @@ class EkfNodeWrapper(Node):
 
         self.last_ctrl = np.zeros(2, dtype="float64")
         self.update_dt = 0.01
-        self.update_cov = assumedActCov * self.update_dt * self.update_dt
+        self.update_cov = assumedActCov * self.update_dt * self.update_dt * 1.5
         self.update_timer = self.create_timer(self.update_dt, self.update_estimate)
-        self.predict_cov = assumedSenseCov
+        self.sense_cov = assumedSenseCov
 
     # msg : sensor_msgs.msg.Imu
     def imu_callback(self, msg):
@@ -63,23 +63,28 @@ class EkfNodeWrapper(Node):
         ]
         _, _, yaw = quat2euler(quat)
         self.yawReading = yaw
-        self.predict_cov[2][2] = msg.orientation_covariance[8]
-        self.update()
+        self.sense_cov = np.copy(assumedSenseCov)
+        self.sense_cov[2][2] = msg.orientation_covariance[8]
+        self.sense_cov *= 1.5
+        z = np.array([0, 0, yaw])
+        self.filter.update(z, self.sense_cov, ignoreIndices=[0, 1])
 
     # msg : sensor_msgs.msg.PointCloud2
     def point_callback(self, msg):
         points = point_cloud2.read_points_list(msg)
         self.pointReading = points[0]
-        self.update()
+        z = np.array([self.pointReading[0], self.pointReading[1], 0])
+        self.filter.update(z, self.sense_cov, ignoreIndices=[2])
 
     def update(self):
         z = np.array([self.pointReading[0], self.pointReading[1], self.yawReading])
-        self.get_logger().info("\n" + str(z) + "\n" + str(self.filter.h()) + "\n" + str(z - self.filter.h()))
-        self.filter.update(z, self.predict_cov)
+        self.filter.update(z, self.sense_cov)
 
-    # later, msg : geometry_msgs.msg.Twist
+    # msg : geometry_msgs.msg.Twist
     def control_callback(self, msg):
-        self.last_ctrl = np.array([msg.linear.x, msg.angular.z])
+        minctrl = np.array([-1, -1])
+        maxctrl = np.array([1, 1])
+        self.last_ctrl = np.minimum(maxctrl, np.maximum(minctrl, np.array([msg.linear.x, msg.angular.z])))
 
     def update_estimate(self):
         self.filter.predict(self.last_ctrl, self.update_cov, self.update_dt)

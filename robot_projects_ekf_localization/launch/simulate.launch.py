@@ -9,7 +9,7 @@ def generate_launch_description():
     sim_node = Node(
         package="robot_projects_simulator",
         executable="ekf_sim_world",
-        output={"both": "log"}
+        output={"both": "screen"}
     )
 
     ekf_node = Node(

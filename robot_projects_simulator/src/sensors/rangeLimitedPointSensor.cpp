@@ -72,13 +72,12 @@ PointCloud2 RangeLimitedPointSensor::aggregatePoints(){
             pclpt.z = 0;
             reading.points.push_back(pclpt);
         }
-
-        PointCloud2 pc2_msg;
-        pcl::toROSMsg(reading, pc2_msg);
-        pc2_msg.header.frame_id = frameId;
-        pc2_msg.header.stamp = clock->now();
-        return pc2_msg;
     }
+    PointCloud2 pc2_msg;
+    pcl::toROSMsg(reading, pc2_msg);
+    pc2_msg.header.frame_id = frameId;
+    pc2_msg.header.stamp = clock->now();
+    return pc2_msg;
 }
 
 void RangeLimitedPointSensor::attach(Node::SharedPtr n){
