@@ -27,7 +27,7 @@ def generate_launch_description():
         prefix = 'xterm -e'
     )
 
-    topics = ['/cmd_vel', '/pt_sensor/reading', '/imu/reading', '/pose_sensor/reading']
+    topics = ['/cmd_vel', '/pt_sensor/reading', '/imu/reading', '/pose_sensor/reading', 'tf']
     bag_process = ExecuteProcess(
         cmd=['ros2', 'bag', 'record'] + topics
     )

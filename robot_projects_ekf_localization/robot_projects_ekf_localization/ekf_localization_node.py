@@ -66,19 +66,17 @@ class EkfNodeWrapper(Node):
         self.sense_cov = np.copy(assumedSenseCov)
         self.sense_cov[2][2] = msg.orientation_covariance[8]
         self.sense_cov *= 1.5
-        z = np.array([0, 0, yaw])
-        self.filter.update(z, self.sense_cov, ignoreIndices=[0, 1])
+        self.update(ignoreIndices=[0, 1])
 
     # msg : sensor_msgs.msg.PointCloud2
     def point_callback(self, msg):
         points = point_cloud2.read_points_list(msg)
         self.pointReading = points[0]
-        z = np.array([self.pointReading[0], self.pointReading[1], 0])
-        self.filter.update(z, self.sense_cov, ignoreIndices=[2])
+        self.update(ignoreIndices=[2])
 
-    def update(self):
+    def update(self, ignoreIndices=[]):
         z = np.array([self.pointReading[0], self.pointReading[1], self.yawReading])
-        self.filter.update(z, self.sense_cov)
+        self.filter.update(z, self.sense_cov, ignoreIndices=ignoreIndices)
 
     # msg : geometry_msgs.msg.Twist
     def control_callback(self, msg):

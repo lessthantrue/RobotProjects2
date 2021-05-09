@@ -37,7 +37,7 @@ int main(int argc, char ** argv)
     sensConf.parentFrameId = "base_link";
     sensConf.name = "pt_sensor";
     sensConf.loopHz = 20;
-    sensConf.covariance << 0.05, 0, 0, 0.05;
+    sensConf.covariance << 0.01, 0, 0, 0.01;
 
     SimObjectConfiguration poseSensorConf;
     poseSensorConf.name = "pose_sensor";
@@ -50,7 +50,7 @@ int main(int argc, char ** argv)
     imuConf.name = "imu";
     imuConf.loopHz = 50;
     imuConf.covariance << 
-        0.1 * M_PI, 0, 0, 0,
+        0.01 * M_PI, 0, 0, 0,
         0, 0, 0, 0, 
         0, 0, 0, 0,
         0, 0, 0, 0;

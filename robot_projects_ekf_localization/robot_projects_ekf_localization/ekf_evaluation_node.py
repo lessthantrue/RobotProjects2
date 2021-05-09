@@ -62,6 +62,7 @@ class EkfEvaluationNode(Node):
             10
         )
 
+        self.time_start = None
         self.last_truth = None
         self.last_est = None
         self.probabilities = []
@@ -79,6 +80,10 @@ class EkfEvaluationNode(Node):
 
     # msg :: PoseStamped
     def truth_callback(self, msg):
+        if self.time_start == None:
+            self.time_start = rclpy.time.Time.from_msg(msg.header.stamp).nanoseconds
+            self.get_logger().info("Found starting time (ns): " + str(self.time_start))
+
         if self.last_truth != None and self.last_est != None:
             time_last = rclpy.time.Time.from_msg(self.last_truth.header.stamp)
             time_now = rclpy.time.Time.from_msg(msg.header.stamp)
@@ -89,7 +94,7 @@ class EkfEvaluationNode(Node):
             error = truth_interpolated - poseToState(self.last_est.pose.pose)
             cov = poseCovToStateCov(self.last_est.pose.covariance)
 
-            time_est_float = time_est.nanoseconds() * 1000000000
+            time_est_float = (time_now.nanoseconds - self.time_start) / 1000000000
             p = probability(cov, error)
             lnp = logProbability(cov, error)
             if self.outfile != None:

@@ -13,7 +13,7 @@ setup(
         ('share/' + package_name, [
             'launch/ekf_demo.launch.py', 
             'launch/ekf_evaluate.launch.py',
-            'launch/ekf_make_evaluate_bag.launch.py'
+            'launch/make_evaluate_bag.launch.py'
         ]),
         ('share/' + 'config', ['config/ekf_sim_world.rviz', 'config/ekf_evaluate_params.yaml'])
     ],

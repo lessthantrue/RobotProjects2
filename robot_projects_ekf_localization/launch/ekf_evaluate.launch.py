@@ -6,6 +6,7 @@ from launch.actions import DeclareLaunchArgument
 import sys
 import pathlib
 import launch
+import os
 
 def generate_launch_description():
     ld = LaunchDescription()
@@ -21,6 +22,13 @@ def generate_launch_description():
     ekf_node = Node(
         package="robot_projects_ekf_localization",
         executable="ekf_localization",
+        output={"both": "screen"}
+    )
+
+    vis_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        arguments=["-d", os.path.join(get_package_share_directory("robot_projects_ekf_localization"), "config", "ekf_sim_world.rviz")],
         output={"both": "screen"}
     )
 
@@ -40,6 +48,7 @@ def generate_launch_description():
     ld.add_action(ekf_node)
     ld.add_action(eval_node)
     ld.add_action(bag_process)
+    ld.add_entity(vis_node)
     ld.add_entity(arg)
 
     return ld

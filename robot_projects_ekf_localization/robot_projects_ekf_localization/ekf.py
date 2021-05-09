@@ -11,7 +11,10 @@ def rotation(h):
 
 class ExtendedKalmanFilter :
     def __init__(self):
-        self.beaconPosition = np.array([0, 0])
+        self.beaconPosition = np.array([0, 0]) 
+        self.updateCovInflation = 1
+        self.nonlinearCompensation = 0
+        self.predictCovInflation = 1
 
     def setInitialPose(self, initialPose):
         self.x = initialPose
@@ -84,9 +87,13 @@ class ExtendedKalmanFilter :
         ])
 
     def predict(self, control, processCovariance, dt):
-        self.x = self.f(control, dt)
         F = self.F(control, dt)
-        self.P = F @ self.P @ F.T + processCovariance
+
+        x, y, h = self.x
+        nonlinearity = abs(control[0] * h * dt) / 4 * np.sqrt((x * np.cos(h))**2 + (y * np.sin(h))**2)
+
+        self.x = self.f(control, dt)
+        self.P = F @ self.P @ F.T + processCovariance * (self.predictCovInflation + self.nonlinearCompensation * nonlinearity)
 
     def update(self, sensed, sensorCov, ignoreIndices=[]):
         H = self.H()
@@ -95,9 +102,11 @@ class ExtendedKalmanFilter :
             H[:,i] = np.zeros(len(sensed))
             
         y = sensed - self.h()
+        if abs(y[2]) > np.pi:
+            y[2] = -(np.sign(y[2]) * np.pi * 2 - y[2])
 
         try:
-            K = self.P @ H.T @ np.linalg.inv(H @ self.P @ H.T + sensorCov)
+            K = self.P @ H.T @ np.linalg.inv(H @ self.P @ H.T + sensorCov * self.updateCovInflation)
             self.x += K @ y
             self.P = (np.eye(3) - K @ H) @ self.P
         except Exception:
