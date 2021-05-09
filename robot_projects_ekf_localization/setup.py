@@ -10,8 +10,12 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name, ['launch/simulate.launch.py']),
-        ('share/' + package_name + "/config", ['config/ekf_sim_world.rviz'])
+        ('share/' + package_name, [
+            'launch/ekf_demo.launch.py', 
+            'launch/ekf_evaluate.launch.py',
+            'launch/ekf_make_evaluate_bag.launch.py'
+        ]),
+        ('share/' + 'config', ['config/ekf_sim_world.rviz', 'config/ekf_evaluate_params.yaml'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,7 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'ekf_localization = robot_projects_ekf_localization.ekf_localization_node:main'
+            'ekf_localization = robot_projects_ekf_localization.ekf_localization_node:main',
+            'ekf_evaluation = robot_projects_ekf_localization.ekf_evaluation_node:main'
         ],
     },
 )

@@ -39,6 +39,12 @@ int main(int argc, char ** argv)
     sensConf.loopHz = 20;
     sensConf.covariance << 0.05, 0, 0, 0.05;
 
+    SimObjectConfiguration poseSensorConf;
+    poseSensorConf.name = "pose_sensor";
+    poseSensorConf.frameId = "base_link";
+    poseSensorConf.loopHz = 20;
+    poseSensorConf.parentFrameId = "map";
+
     ImuSensorConfiguration imuConf;
     imuConf.frameId = "base_link";
     imuConf.name = "imu";
@@ -66,10 +72,12 @@ int main(int argc, char ** argv)
     sensor->attachWorld(sim->sensableWorld());
     std::shared_ptr<DynamicSimObject> obj = std::make_shared<DynamicSimObject>(conf, &viz, &dyn);
     obj->setControl(input);
+    std::shared_ptr<PoseSensor> poseSensor = std::make_shared<PoseSensor>(poseSensorConf);
     SimObject::SharedPtr imu = std::make_shared<ImuSensor>(imuConf);
     sim->addObject(obj);
     sim->addObject(sensor);
     sim->addObject(imu);
+    sim->addObject(poseSensor);
 
     for(;;){
         sim->timeStep();
