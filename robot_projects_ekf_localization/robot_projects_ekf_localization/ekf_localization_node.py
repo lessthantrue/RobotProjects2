@@ -4,7 +4,7 @@ from geometry_msgs.msg import PoseWithCovarianceStamped, Twist
 from rclpy.node import Node
 from transforms3d.euler import quat2euler
 import pcl_msgs
-from robot_projects_ekf_localization import point_cloud2, ekf
+from robot_projects_ekf_localization import point_cloud2, ekf, ukf
 import numpy as np
 
 assumedActCov = np.eye(3)
@@ -36,10 +36,12 @@ class EkfNodeWrapper(Node):
             "pose_estimate",
             10
         )
-        self.filter = ekf.ExtendedKalmanFilter()
+
+        # self.filter = ekf.ExtendedKalmanFilter()
+        self.filter = ukf.UnscentedKalmanFilter()
         self.filter.setBeaconPosition(np.array([3, -2]))
         self.filter.setInitialPose(np.array([0, 0, 0], dtype="float64"))
-        self.filter.setInitialCovariance(np.zeros((3, 3), dtype="float64"))
+        self.filter.setInitialCovariance(np.eye(3, dtype="float64") * 0.1)
         self.lastCtrlTime = self.get_clock().now()
 
         self.yawReading = 0

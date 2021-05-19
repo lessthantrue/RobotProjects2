@@ -11,6 +11,7 @@
 #include <memory>
 #include <chrono>
 #include <iostream>
+#include "yaml/yamlConfigReader.h"
 
 using namespace std::chrono_literals;
 using geometry_msgs::msg::PoseStamped;

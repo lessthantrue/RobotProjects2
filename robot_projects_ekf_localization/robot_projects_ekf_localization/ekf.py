@@ -1,107 +1,26 @@
 import numpy as np
 from geometry_msgs.msg import PoseWithCovariance
 from transforms3d.euler import euler2quat
-from math import remainder
+import robot_projects_ekf_localization.se2_dynamics as se2
+from robot_projects_ekf_localization.filter_base import FilterBase
 
-def rotation(h):
-    return np.array([
-        [np.cos(h), -np.sin(h)],
-        [np.sin(h), np.cos(h)]
-    ])
-
-class ExtendedKalmanFilter :
-    def __init__(self):
-        self.beaconPosition = np.array([0, 0]) 
-        self.updateCovInflation = 1
-        self.nonlinearCompensation = 0
-        self.predictCovInflation = 1
-
-    def setInitialPose(self, initialPose):
-        self.x = initialPose
-
-    def setInitialCovariance(self, initialCovariance):
-        self.P = initialCovariance
-
-    def setBeaconPosition(self, posn):
-        self.beaconPosition = posn
-
-    def toPoseWithCovariance(self):
-        pwc = PoseWithCovariance()
-        pwc.pose.position.x = self.x[0]
-        pwc.pose.position.y = self.x[1]
-        # pwc.pose.position.z = float(0)
-
-        q = euler2quat(0, 0, self.x[2])
-        pwc.pose.orientation.x = q[1]
-        pwc.pose.orientation.y = q[2]
-        pwc.pose.orientation.z = q[3]
-        pwc.pose.orientation.w = q[0]
-
-        # fill covariance
-        # I should make a function for this stuff someday
-        pwc.covariance[0] = self.P[0][0]
-        pwc.covariance[1] = self.P[0][1]
-        pwc.covariance[5] = self.P[0][2]
-        pwc.covariance[6] = self.P[1][0]
-        pwc.covariance[7] = self.P[1][1]
-        pwc.covariance[11] = self.P[1][2]
-        pwc.covariance[30] = self.P[2][0]
-        pwc.covariance[31] = self.P[2][1]
-        pwc.covariance[35] = self.P[2][2]
-
-        return pwc
-
-    # control is [linear velocity, angular velocity]
-    def f(self, control, dt):
-        h = self.x[2]
-        return np.array([
-            self.x[0] + control[0] * np.cos(h) * dt,
-            self.x[1] + control[0] * np.sin(h) * dt,
-            h + control[1] * dt
-        ])
-
-    # df/dx
-    def F(self, control, dt):
-        h = self.x[2]
-        return np.array([
-            [1, 0, -control[0] * np.sin(h) * dt],
-            [0, 1, control[0] * np.cos(h) * dt],
-            [0, 0, 1]
-        ])
-
-    def h(self):
-        dif = self.beaconPosition - self.x[0:2]
-        h = self.x[2]
-        return np.concatenate([rotation(-h) @ dif, [remainder(h, np.pi * 2)]])
-
-    def H(self):
-        dif = self.beaconPosition - self.x[0:2]
-        h = self.x[2]
-        drotdh = np.array([
-            [-np.sin(-h), -np.cos(-h)],
-            [np.cos(-h), -np.sin(-h)]
-        ])
-        return np.block([
-            [-rotation(-h), np.reshape(-(drotdh @ dif), (2, 1))],
-            [0, 0, 1]
-        ])
-
+class ExtendedKalmanFilter(FilterBase) :
     def predict(self, control, processCovariance, dt):
-        F = self.F(control, dt)
+        F = se2.F(self.x, control, dt)
 
         x, y, h = self.x
         nonlinearity = abs(control[0] * h * dt) / 4 * np.sqrt((x * np.cos(h))**2 + (y * np.sin(h))**2)
 
-        self.x = self.f(control, dt)
+        self.x = se2.f(self.x, control, dt)
         self.P = F @ self.P @ F.T + processCovariance * (self.predictCovInflation + self.nonlinearCompensation * nonlinearity)
 
     def update(self, sensed, sensorCov, ignoreIndices=[]):
-        H = self.H()
+        H = se2.H(self.x, self.beaconPosition)
 
         for i in ignoreIndices:
             H[:,i] = np.zeros(len(sensed))
             
-        y = sensed - self.h()
+        y = sensed - se2.h(self.x, self.beaconPosition)
         if abs(y[2]) > np.pi:
             y[2] = -(np.sign(y[2]) * np.pi * 2 - y[2])
 
