@@ -2,7 +2,7 @@ import numpy as np
 from robot_projects_ekf_localization.filter_base import FilterBase
 import robot_projects_ekf_localization.se2_dynamics as se2
 
-w0 = 0.7
+w0 = 0.6
 
 class UnscentedKalmanFilter(FilterBase):
     def getSigmaPoints(self):
@@ -38,4 +38,18 @@ class UnscentedKalmanFilter(FilterBase):
         self.P = Pnew
 
     def update(self, sensed, sensorCov, ignoreIndices=[]):
-        pass
+        s = self.getSigmaPoints()
+        zs = [ se2.h(si, self.beaconPosition) for si in s ]
+        ws = self.getWeights()
+
+        zhat = sum(map(lambda x : x[0] * x[1], zip(zs, ws)))
+        shat = sum(map(lambda x : np.outer(x[1] - zhat, x[1] - zhat) * x[0], zip(ws, zs))) + sensorCov
+        csz = sum(map(lambda x : np.outer(x[1] - self.x, x[2] - zhat) * x[0], zip(ws, s, zs)))
+        K = csz @ np.linalg.inv(shat)
+
+        for i in ignoreIndices:
+            K[:, i] = np.zeros(len(sensed))
+
+        self.x += K @ (sensed - zhat)
+        # add small identity to matrix to increase numerical stability
+        self.P += (np.eye(len(self.x)) * 0.01) - K @ shat @ K.T
