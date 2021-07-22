@@ -22,7 +22,10 @@ def generate_launch_description():
     ekf_node = Node(
         package="robot_projects_ekf_localization",
         executable="ekf_localization",
-        output={"both": "screen"}
+        output={"both": "screen"},
+        parameters=[
+            {'filter_type':'ekf'}
+        ]
     )
 
     vis_node = Node(

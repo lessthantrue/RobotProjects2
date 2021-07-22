@@ -9,6 +9,8 @@ import numpy as np
 assumedActCov = np.eye(3)
 assumedSenseCov = np.eye(3) * 0.05
 
+PARAM_FILTER_TYPE = 'filter_type'
+
 class EkfNodeWrapper(Node):
     def __init__(self):
         super().__init__("ekf_localization")
@@ -35,9 +37,17 @@ class EkfNodeWrapper(Node):
             "pose_estimate",
             10
         )
+        
+        self.declare_parameter(PARAM_FILTER_TYPE)
 
-        # self.filter = ekf.ExtendedKalmanFilter()
-        self.filter = ukf.UnscentedKalmanFilter()
+        if self.get_parameter(PARAM_FILTER_TYPE) == 'ekf': 
+            self.filter = ekf.ExtendedKalmanFilter()
+            self.get_logger().info("using extended kalman filter")
+        elif self.get_parameter(PARAM_FILTER_TYPE) == 'ukf':
+            self.filter = ukf.UnscentedKalmanFilter()
+            self.get_logger().info("using unscented kalman filter")
+            
+            
         self.filter.setBeaconPosition(np.array([3, -2]))
         self.filter.setInitialPose(np.array([0, 0, 0], dtype="float64"))
         self.filter.setInitialCovariance(np.eye(3, dtype="float64") * 0.1)
