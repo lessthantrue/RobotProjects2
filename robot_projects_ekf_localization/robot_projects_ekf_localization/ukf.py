@@ -1,10 +1,14 @@
 import numpy as np
 from robot_projects_ekf_localization.filter_base import FilterBase
 import robot_projects_ekf_localization.se2_dynamics as se2
+from geometry_msgs.msg import PoseArray
 
 w0 = 0.6
 
 class UnscentedKalmanFilter(FilterBase):
+    def __init__(self):
+        self.can_visualize = True
+    
     def getSigmaPoints(self):
         s = [np.copy(self.x)]
         A = np.linalg.cholesky(self.P)
@@ -53,3 +57,11 @@ class UnscentedKalmanFilter(FilterBase):
         self.x += K @ (sensed - zhat)
         # add small identity to matrix to increase numerical stability
         self.P += (np.eye(len(self.x)) * 0.01) - K @ shat @ K.T
+        
+    def getVisualizationType(self):
+        return PoseArray
+
+    def getVisualizationData(self):
+        poses = PoseArray()
+        poses.poses = [ se2.toPose(s) for s in self.getSigmaPoints() ]
+        return poses

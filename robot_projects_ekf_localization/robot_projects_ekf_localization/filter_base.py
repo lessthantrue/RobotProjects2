@@ -9,6 +9,7 @@ class FilterBase(ABC):
         self.updateCovInflation = 1
         self.nonlinearCompensation = 0
         self.predictCovInflation = 1
+        self.can_visualize = False
 
     def setInitialPose(self, initialPose):
         self.x = initialPose
@@ -52,3 +53,16 @@ class FilterBase(ABC):
     @abstractmethod
     def update(self, sensed, sensorCov, ignoreIndices = []):
         pass
+
+    def canVisualize(self):
+        return self.can_visualize
+    
+    # type returned must have a header field
+    @abstractmethod
+    def getVisualizationType(self):
+        pass
+    
+    @abstractmethod
+    def getVisualizationData(self):
+        pass
+    

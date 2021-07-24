@@ -1,5 +1,7 @@
 import numpy as np
 import math
+from geometry_msgs.msg import Pose
+from transforms3d.euler import euler2quat
 
 # common functions for the robot dynamics and sensor model
 
@@ -44,3 +46,17 @@ def H(x, beaconPosition):
         [-rotation(-h), np.reshape(-(drotdh @ dif), (2, 1))],
         [0, 0, 1]
     ])
+    
+def toPose(x):
+    toReturn = Pose()
+    toReturn.position.x = x[0]
+    toReturn.position.y = x[1]
+    toReturn.position.z = 0.0
+    
+    q = euler2quat(0, 0, x[2])
+    toReturn.orientation.x = q[1]
+    toReturn.orientation.y = q[2]
+    toReturn.orientation.z = q[3]
+    toReturn.orientation.w = q[0]
+    
+    return toReturn

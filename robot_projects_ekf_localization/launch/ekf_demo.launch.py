@@ -17,7 +17,7 @@ def generate_launch_description():
         executable="ekf_localization",
         output={"both": "screen"},
         parameters=[
-            {'filter_type':'ekf'}
+            {'filter_type':'ukf'}
         ]
     )
 

@@ -3,7 +3,7 @@ from sensor_msgs.msg import Imu, PointCloud2
 from geometry_msgs.msg import PoseWithCovarianceStamped, Twist
 from rclpy.node import Node
 from transforms3d.euler import quat2euler
-from robot_projects_ekf_localization import point_cloud2, ekf, ukf
+from robot_projects_ekf_localization import point_cloud2, ekf, ukf, particle_filter
 import numpy as np
 
 assumedActCov = np.eye(3)
@@ -40,18 +40,30 @@ class EkfNodeWrapper(Node):
         
         self.declare_parameter(PARAM_FILTER_TYPE)
 
-        if self.get_parameter(PARAM_FILTER_TYPE) == 'ekf': 
+        filterType = self.get_parameter(PARAM_FILTER_TYPE).value
+        if filterType == 'ekf': 
             self.filter = ekf.ExtendedKalmanFilter()
             self.get_logger().info("using extended kalman filter")
-        elif self.get_parameter(PARAM_FILTER_TYPE) == 'ukf':
+        elif filterType == 'ukf':
             self.filter = ukf.UnscentedKalmanFilter()
             self.get_logger().info("using unscented kalman filter")
+        elif filterType == 'particle':
+            self.filter = particle_filter.ParticleFilter()
+            self.get_logger().info("using particle filter")
+        else:
+            self.get_logger().error("WARNING: NO FILTER SET ({} = {})".format(PARAM_FILTER_TYPE, filterType))
             
+        if(self.filter.canVisualize()):
+            self.vis_pub = self.create_publisher(
+                    self.filter.getVisualizationType(),
+                    "visualize_estimate",
+                    10
+                )
+            self.visualize_timer = self.create_timer(0.1, self.publish_visualization)
             
         self.filter.setBeaconPosition(np.array([3, -2]))
         self.filter.setInitialPose(np.array([0, 0, 0], dtype="float64"))
         self.filter.setInitialCovariance(np.eye(3, dtype="float64") * 0.1)
-        self.lastCtrlTime = self.get_clock().now()
 
         self.yawReading = 0
         self.pointReading = np.array([3, -2])
@@ -104,6 +116,12 @@ class EkfNodeWrapper(Node):
         est.header.stamp = self.get_clock().now().to_msg()
         est.pose = self.filter.toPoseWithCovariance()
         self.est_pub.publish(est)
+        
+    def publish_visualization(self):
+        msg = self.filter.getVisualizationData()
+        msg.header.frame_id = "map"
+        msg.header.stamp = self.get_clock().now().to_msg()
+        self.vis_pub.publish(msg)
 
 def main(args=None):
     rclpy.init(args=args)
