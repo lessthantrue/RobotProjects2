@@ -4,14 +4,14 @@
 
 // this taken directly from https://github.com/mit-racecar/racecar_simulator
 
-#include "racecar_simulator/distance_transform.hpp"
+#include "laser_scan/distance_transform.h"
 
 // Implementation based on the paper
 // Distance Transforms of Sampled Functions
 // Pedro F. Felzenszwalb and Daniel P. Huttenlocher
 // http://people.cs.uchicago.edu/~pff/papers/dt.pdf
 
-using namespace racecar_simulator;
+using namespace laser_scan;
 
 void DistanceTransform::distance_squared_1d(
     const std::vector<double> & input, 

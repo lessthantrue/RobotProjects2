@@ -1,10 +1,10 @@
-#include "racecar_simulator/pose_2d.hpp"
-#include "racecar_simulator/scan_simulator_2d.hpp"
-#include "racecar_simulator/distance_transform.hpp"
+#include "laser_scan/pose2d.h"
+#include "laser_scan/scan_simulator_2d.h"
+#include "laser_scan/distance_transform.h"
 
 // this taken directly from https://github.com/mit-racecar/racecar_simulator
 
-using namespace racecar_simulator;
+using namespace laser_scan;
 
 ScanSimulator2D::ScanSimulator2D(
     int num_beams_, 

@@ -71,30 +71,33 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/sensors)
 # target_link_libraries(${SIMULATION_LIB} ${dependencies})
 ament_target_dependencies(${SIMULATION_LIB} ${dependencies})
 
-add_executable(ekf_sim_world executables/ekf_sim_world.cpp)
-add_executable(test_sim_world executables/test_sim_world.cpp)
+#####################
+# build executables #
+#####################
 
-target_link_libraries(ekf_sim_world 
-  ${SIMULATION_LIB}
-  ${BOOST_SYSTEM_LIBRARY}
-  ${PCL_LIBRARIES})
-target_link_libraries(test_sim_world 
-  ${SIMULATION_LIB}
-  ${BOOST_SYSTEM_LIBRARY}
-  ${PCL_LIBRARIES})
+file(GLOB executables "executables/*.cpp")
+
+foreach(file ${executables})
+  message(${file})
+  get_filename_component(exe ${file} NAME_WE)
+  message(${exe})
+  add_executable(${exe} ${file})
+  
+  target_link_libraries(${exe}
+    ${SIMULATION_LIB}
+    ${BOOST_SYSTEM_LIBRARY}
+    ${PCL_LIBRARIES})
+    
+  ament_target_dependencies(${exe} ${dependencies})
+  
+  install(TARGETS ${SIMULATION_LIB} ${exe}
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION lib/${PROJECT_NAME})
+endforeach()
 
 target_include_directories(ekf_sim_world PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-ament_target_dependencies(ekf_sim_world ${dependencies})
-ament_target_dependencies(test_sim_world ${dependencies})
 ament_export_dependencies(${dependencies})
-
-install(TARGETS ${SIMULATION_LIB} ekf_sim_world
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION lib/${PROJECT_NAME})
-install(TARGETS ${SIMULATION_LIB} test_sim_world
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 # if(BUILD_TESTING)
 #   find_package(ament_lint_auto REQUIRED)

@@ -4,9 +4,9 @@
 
 #include <random>
 
-#include "racecar_simulator/pose_2d.hpp"
+#include "laser_scan/pose2d.h"
 
-namespace racecar_simulator {
+namespace laser_scan {
 
 class ScanSimulator2D {
 

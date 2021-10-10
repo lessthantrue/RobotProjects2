@@ -5,7 +5,7 @@
 
 // this taken directly from https://github.com/mit-racecar/racecar_simulator
 
-namespace racecar_simulator {
+namespace laser_scan {
 
 class DistanceTransform {
 

@@ -24,10 +24,10 @@ int main(int argc, char ** argv)
 
   vector<std::shared_ptr<SensablePoint>> points;
   points.push_back(std::make_shared<SensablePoint>(0, 1, "map"));
-  points.push_back(std::make_shared<SensablePoint>(-2, 1, "map"));
+  points.push_back(std::make_shared<SensablePoint>(-2, 2, "map"));
   points.push_back(std::make_shared<SensablePoint>(3, -2, "map"));
+  points.push_back(std::make_shared<SensablePoint>(-3, -1, "map"));
   points.push_back(std::make_shared<SensablePoint>(-1, 1, "map"));
-  points.push_back(std::make_shared<SensablePoint>(2, 1, "map"));
   sim->sensableWorld()->addPoints(points);
 
   DynamicSimObjectConfiguration conf;
@@ -41,7 +41,7 @@ int main(int argc, char ** argv)
   sensConf.parentFrameId = "base_link";
   sensConf.name = "pt_sensor";
   sensConf.loopHz = 10;
-  sensConf.covariance << 0.05, 0, 0, 0.05;
+  sensConf.covariance << 0.01, 0, 0, 0.01;
 
   SimObjectConfiguration poseConf;
   poseConf.frameId = "base_link";
