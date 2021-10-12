@@ -1,9 +1,9 @@
 import rclpy
 from sensor_msgs.msg import Imu, PointCloud2
 from geometry_msgs.msg import PoseWithCovarianceStamped, Twist
-from rclpy.node import Node
+from rclpy.node import node
 from transforms3d.euler import quat2euler
-from robot_projects_ekf_localization import point_cloud2, ekf, ukf, particle_filter
+from robot_projects_ekf_localization import point_cloud2, ekf
 import numpy as np
 
 assumedActCov = np.eye(3)
@@ -11,47 +11,48 @@ assumedSenseCov = np.eye(3) * 0.05
 
 PARAM_FILTER_TYPE = 'filter_type'
 
-class EkfNodeWrapper(Node):
+class MultipleBeaconFilter(Node):
     def __init__(self):
-        super().__init__("ekf_localization")
+        super().__init__("localization")
         self.imu_sub = self.create_subscription(
-            Imu,
+            Imu, 
             "/imu/reading",
-            self.imu_callback,
+            lambda x : print(x),
             10
         )
         self.point_sub = self.create_subscription(
-            PointCloud2,
+            PointCloud2, 
             "/pt_sensor/reading",
-            self.point_callback,
+            lambda x : print(x),
             10
         )
         self.ctrl_sub = self.create_subscription(
-            Twist,
+            Twist, 
             "/cmd_vel",
-            self.control_callback,
+            lambda x : print(x),
             10
         )
-        self.est_pub = self.create_publisher(
-            PoseWithCovarianceStamped,
+        self.est_pub = self.create_subscription(
+            PoseWithCovarianceStamped, 
             "/pose_estimate",
+            lambda x : print(x),
             10
         )
         
         self.declare_parameter(PARAM_FILTER_TYPE)
-
-        filterType = self.get_parameter(PARAM_FILTER_TYPE).value
-        if filterType == 'ekf': 
+        
+        filterTypeStr = self.get_parameter(PARAM_FILTER_TYPE).value
+        if filterTypeStr == 'ekf': 
             self.filter = ekf.ExtendedKalmanFilter()
             self.get_logger().info("using extended kalman filter")
-        elif filterType == 'ukf':
+        elif filterTypeStr == 'ukf':
             self.filter = ukf.UnscentedKalmanFilter()
             self.get_logger().info("using unscented kalman filter")
-        elif filterType == 'particle':
+        elif filterTypeStr == 'particle':
             self.filter = particle_filter.ParticleFilter()
             self.get_logger().info("using particle filter")
         else:
-            self.get_logger().error("ERROR: NO FILTER SET OR UNKNOWN FILTER TYPE ({} = {})".format(PARAM_FILTER_TYPE, filterType))
+            self.get_logger().error("ERROR: NO FILTER SET OR UNKNOWN FILTER TYPE ({} = {})".format(PARAM_FILTER_TYPE, filterTypeStr))
             
         if(self.filter.canVisualize()):
             self.vis_pub = self.create_publisher(
@@ -60,11 +61,18 @@ class EkfNodeWrapper(Node):
                     10
                 )
             self.visualize_timer = self.create_timer(0.1, self.publish_visualization)
-            
-        self.filter.setBeaconPosition(np.array([3, -2]))
+        
         self.filter.setInitialPose(np.array([0, 0, 0], dtype="float64"))
         self.filter.setInitialCovariance(np.eye(3, dtype="float64") * 0.1)
-
+            
+        self.beacons = [
+            [0, 1],
+            [-2, 2],
+            [3, -2],
+            [-3, -1],
+            [-1, 1]
+        ]
+        
         self.yawReading = 0
         self.pointReading = np.array([3, -2])
 
@@ -75,8 +83,8 @@ class EkfNodeWrapper(Node):
         self.update_cov = assumedActCov * self.update_dt * self.update_dt * 1.5
         self.update_timer = self.create_timer(self.update_dt, self.update_estimate)
         self.sense_cov = assumedSenseCov
-
-    # msg : sensor_msgs.msg.Imu
+        
+   # msg : sensor_msgs.msg.Imu
     def imu_callback(self, msg):
         quat = [
             msg.orientation.w,
@@ -122,14 +130,3 @@ class EkfNodeWrapper(Node):
 
     def update_estimate(self):
         self.filter.predict(self.last_ctrl, self.update_cov, self.update_dt)
-
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = EkfNodeWrapper()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == "__main__":
-    main()

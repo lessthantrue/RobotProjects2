@@ -16,17 +16,27 @@ class ExtendedKalmanFilter(FilterBase) :
 
     def update(self, sensed, sensorCov, ignoreIndices=[]):
         H = se2.H(self.x, self.beaconPosition)
+        hx = se2.h(self.x, self.beaconPosition)
 
-        for i in ignoreIndices:
-            H[:,i] = np.zeros(len(sensed))
+        thdif = sensed[2] - hx[2]
+        if abs(thdif) > np.pi:
+            sensed[2] -= (np.sign(thdif) * np.pi * 2)
+
+        self.updateBase(H, hx, sensed, ignoreIndices)
+
+    def updateMultiple(self, sensed, sensorCov, ignoreIndices=[]):
+        pass
+
+    def updateBase(self, H, hx, z, ignore=[]):
+        for i in ignore:
+            H[:,i] = np.zeros(len(z))
             
-        y = sensed - se2.h(self.x, self.beaconPosition)
-        if abs(y[2]) > np.pi:
-            y[2] = -(np.sign(y[2]) * np.pi * 2 - y[2])
-
+        y = z - hx
+            
         try:
             K = self.P @ H.T @ np.linalg.inv(H @ self.P @ H.T + sensorCov * self.updateCovInflation)
             self.x += K @ y
-            self.P = (np.eye(3) - K @ H) @ self.P
+            self.P = (np.eye(len(self.x)) - K @ H) @ self.P
         except Exception:
             pass
+        

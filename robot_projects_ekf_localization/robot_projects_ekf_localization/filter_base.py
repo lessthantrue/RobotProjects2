@@ -54,15 +54,18 @@ class FilterBase(ABC):
     def update(self, sensed, sensorCov, ignoreIndices = []):
         pass
 
+    @abstractmethod
+    def updateMultiple(self, sensed, sensorCov, ignoreIndices = []):
+        pass
+    
     def canVisualize(self):
         return self.can_visualize
     
     # type returned must have a header field
-    @abstractmethod
+    # return values will be none if self.can_visualize is false
     def getVisualizationType(self):
-        pass
+        return None
     
-    @abstractmethod
     def getVisualizationData(self):
-        pass
+        return None
     

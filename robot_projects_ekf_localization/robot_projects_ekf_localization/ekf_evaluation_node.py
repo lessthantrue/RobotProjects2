@@ -4,6 +4,7 @@ from rclpy.node import Node
 from transforms3d.euler import quat2euler
 import numpy as np
 import sys
+import os
 
 def poseToState(pose):
     state = np.zeros(3)
@@ -66,10 +67,10 @@ class EkfEvaluationNode(Node):
         self.last_truth = None
         self.last_est = None
         self.probabilities = []
-        outfile_name = self.get_parameter("eval_output").get_parameter_value().string_value
+        outfile_name = os.path.expanduser(self.get_parameter("eval_output").get_parameter_value().string_value)
         if outfile_name != "":
             self.get_logger().info("Writing output to " + outfile_name)
-            self.outfile = open(outfile_name, "wt")
+            self.outfile = open(outfile_name, "wt+")
         else:
             self.get_logger().info("No output file given, writing to screen")
             self.outfile = None

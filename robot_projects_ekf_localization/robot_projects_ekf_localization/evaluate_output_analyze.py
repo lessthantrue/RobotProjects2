@@ -28,5 +28,7 @@ for fname in fnames:
             plotFile(os.path.join(fname, f))
     
 plt.yscale('log')
+plt.xlabel('Time (s)')
+plt.ylabel('Negative Log Probability (lower is better)')
 plt.legend()
 plt.show()

@@ -47,6 +47,18 @@ def H(x, beaconPosition):
         [0, 0, 1]
     ])
     
+def Hb(x, beaconPosition):
+    dif = beaconPosition = x[0:2]
+    h = x[2]
+    drotdh = np.array([
+        [-np.sin(-h), -np.cos(-h)],
+        [np.cos(-h), -np.sin(-h)]
+    ])
+    return np.block([
+        [-rotation(-h), np.reshape(-(drotdh @ dif), (2, 1))],
+    ])
+    
+    
 def toPose(x):
     toReturn = Pose()
     toReturn.position.x = x[0]

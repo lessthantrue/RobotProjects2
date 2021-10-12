@@ -1,4 +1,5 @@
 from setuptools import setup
+from os import listdir
 
 package_name = 'robot_projects_ekf_localization'
 
@@ -10,11 +11,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name, [
-            'launch/ekf_demo.launch.py', 
-            'launch/ekf_evaluate.launch.py',
-            'launch/make_evaluate_bag.launch.py'
-        ]),
+        ('share/' + package_name, ['launch/' + x for x in listdir('launch') if ".launch.py" in x]),
         ('share/' + 'config', ['config/ekf_sim_world.rviz', 'config/ekf_evaluate_params.yaml'])
     ],
     install_requires=['setuptools'],
